@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PT from 'prop-types';
 
-import { Loading } from '../components';
+import { Loading, ArticleCommentUI } from '../components';
 
 class ArticleComments extends Component {
   
@@ -14,7 +14,7 @@ class ArticleComments extends Component {
         { error && <Redirect to="/404" /> }
         { loading ? <Loading /> :
           <div className="articleCommentsUI">
-            *** Hello ArticleCommentsUI ***
+            <ArticleCommentUI />
           </div>
         }
       </div>
