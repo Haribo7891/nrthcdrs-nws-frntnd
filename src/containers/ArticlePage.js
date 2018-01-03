@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PT from 'prop-types';
 
 import { Loading } from '../components';
-import { ArticleBody } from '../containers';
+import { ArticleBody, ArticleComments } from '../containers';
 
 class ArticlePage extends Component {
   
@@ -20,7 +20,7 @@ class ArticlePage extends Component {
             </div>        
             <div className="articleCard-text article-page-color">
               <h4>Other user comments:</h4>
-              *** Hello ArticleComments container ***
+              <ArticleComments />
             </div>
           </div>
         ) }
