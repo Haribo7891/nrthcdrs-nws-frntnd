@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PT from 'prop-types';
 
 import { fetchArticles } from '../actions';
-import { Loading } from '../components';
+import { Loading, HomepageUI } from '../components';
 
 class Homepage extends Component {
   
@@ -20,7 +20,9 @@ class Homepage extends Component {
         {error && <Redirect to="/404" />}
         {loading ? <Loading /> : (
           <div className="homepage-list">
-            Hello Homepage
+            <HomepageUI 
+              articles={ articles }
+            />
           </div>
         )}
       </div>
