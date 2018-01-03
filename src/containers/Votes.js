@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PT from 'prop-types';
+import { VotesUI } from '../components';
 
 class Votes extends Component {
 
   render () {
     return (
       <div className="votesUI">
-        *** VotesUI Component ***
+        <VotesUI />
       </div>
     );
   }

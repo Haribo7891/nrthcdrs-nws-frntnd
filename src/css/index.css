@@ -8,6 +8,33 @@ body {
   text-align: center;
   background-color: rgba(245, 184, 184, 0.774);
 }
+.card {
+  margin: 1em;
+}
+
+.card-blockquote {
+  margin-bottom: 0px;
+}
+
+.list-inline {
+  margin-bottom: 0px;
+}
+
+.card-group {
+  margin-bottom: 15px;
+}
+
+.article-info {
+  margin: 1.5em;
+  flex-flow: row wrap;
+  width: 100%;
+  padding: 1em;
+}
+
+.comment-input {
+  margin: 10px;
+  width: 90%;
+}
 
 .navbar-color {
   background-color: rgba(236, 255, 154, 0.774);
@@ -19,4 +46,24 @@ body {
 
 .article-page-color, .actionButton, .img-button {
   background-color: rgba(154, 201, 255, 0.774);
+}
+
+.homepage-article-color {
+  background-color: rgba(154, 255, 205, 0.774);
+}
+
+.article-list-color {
+  background-color: rgba(154, 206, 255, 0.774);
+}
+
+.article-page-color, .actionButton, .img-button {
+  background-color: rgba(154, 201, 255, 0.774);
+}
+
+.user-article-card-color {
+  background-color: rgba(255, 211, 154, 0.774);
+}
+
+.comment-color {
+  background-color: rgba(146, 230, 245, 0.774);
 }

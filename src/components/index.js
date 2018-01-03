@@ -12,6 +12,7 @@ import SwitchRoutes from './SwitchRoutes';
 import TopicsUI from './TopicsUI';
 import UserBodyUI from './UserBodyUI';
 import UserArticlesUI from './UserArticlesUI';
+import VotesUI from './VotesUI';
 
 export {
   AddCommentUI,
@@ -27,5 +28,6 @@ export {
   SwitchRoutes,
   TopicsUI,
   UserArticlesUI,
-  UserBodyUI
+  UserBodyUI,
+  VotesUI
 };
