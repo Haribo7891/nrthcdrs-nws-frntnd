@@ -6,6 +6,7 @@ import NoMatch from './NoMatch';
 import SwitchRoutes from './SwitchRoutes';
 import TopicsUI from './TopicsUI';
 import UserBodyUI from './UserBodyUI';
+import UserArticlesUI from './UserArticlesUI';
 
 export {
   App,
@@ -15,5 +16,6 @@ export {
   NoMatch,
   SwitchRoutes,
   TopicsUI,
+  UserArticlesUI,
   UserBodyUI
 };

@@ -18,7 +18,7 @@ const TopicsUI = ({ topics }) => (
 );
 
 TopicsUI.propTypes = {
-  topics: PT.array.isRequired
+  topics: PT.object.isRequired
 };
 
 export default TopicsUI;
