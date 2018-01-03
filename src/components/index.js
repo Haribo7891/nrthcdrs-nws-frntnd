@@ -1,4 +1,5 @@
 import App from './App';
+import ArticleBodyUI from './ArticleBodyUI';
 import ArticlesByTopicUI from './ArticlesByTopicUI';
 import Footer from './Footer';
 import HomepageUI from './HomepageUI';
@@ -12,6 +13,7 @@ import UserArticlesUI from './UserArticlesUI';
 
 export {
   App,
+  ArticleBodyUI,
   ArticlesByTopicUI,
   Footer,
   HomepageUI,

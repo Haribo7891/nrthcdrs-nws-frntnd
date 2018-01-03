@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PT from 'prop-types';
 
-import { Loading } from '../components';
+import { Loading, ArticleBodyUI } from '../components';
 
 class ArticleBody extends Component {
   
@@ -12,9 +12,9 @@ class ArticleBody extends Component {
     return (
       <div className="article-body">
         { error && <Redirect to="/404" /> }
-        { loading ? <Loading/> :
+        { loading ? <Loading /> :
           <div className="articleBodyUI">
-            *** Hello ArticleBodyUI component ***
+            <ArticleBodyUI />
           </div>
         }
       </div>
