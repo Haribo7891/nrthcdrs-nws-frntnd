@@ -4,6 +4,7 @@ import Loading from './Loading';
 import Navbar from './Navbar';
 import NoMatch from './NoMatch';
 import SwitchRoutes from './SwitchRoutes';
+import TopicsUI from './TopicsUI';
 
 export {
   App,
@@ -11,5 +12,6 @@ export {
   Loading,
   Navbar,
   NoMatch,
-  SwitchRoutes
+  SwitchRoutes,
+  TopicsUI
 };

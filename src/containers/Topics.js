@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PT from 'prop-types';
 
 import { fetchTopics } from '../actions';
-import { Loading } from '../components';
+import { Loading, TopicsUI } from '../components';
 
 class Topics extends Component {
   
@@ -16,11 +16,11 @@ class Topics extends Component {
     const { topics, loading, error } = this.props;
     return (
       <div className="navbar-topics">
-        {error && <Redirect to="/404" />}
-        {loading ? <Loading/> :
-          <div>
-            hello
-          </div>
+        { error && <Redirect to="/404" /> }
+        { loading ? <Loading/> :
+          <TopicsUI 
+            topics={ topics }
+          />
         }
       </div>
     );
