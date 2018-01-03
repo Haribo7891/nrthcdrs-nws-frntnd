@@ -6,6 +6,7 @@ import ArticlesByTopic from './ArticlesByTopic';
 import Homepage from './Homepage';
 import Topics from './Topics';
 import User from './User';
+import Votes from './Votes';
 
 export {
   AddComment,
@@ -15,5 +16,6 @@ export {
   ArticlesByTopic,
   Homepage,
   Topics,
-  User
+  User,
+  Votes
 };

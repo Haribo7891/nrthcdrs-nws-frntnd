@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PT from 'prop-types';
 
 import { Loading, ArticleBodyUI } from '../components';
+import { Votes } from '../containers';
 
 class ArticleBody extends Component {
   
@@ -15,6 +16,7 @@ class ArticleBody extends Component {
         { loading ? <Loading /> :
           <div className="articleBodyUI">
             <ArticleBodyUI />
+            <Votes />
           </div>
         }
       </div>
