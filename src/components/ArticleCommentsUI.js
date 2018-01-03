@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PT from 'prop-types';
 
-const ArticleCommentUI = () => (
+const ArticleCommentsUI = () => (
   <div className="comment-text">
     <p className="comment-body">*** COMMENT TEXT ***</p>
     <p>*** USER WHO POSTED ***</p>
@@ -10,8 +10,8 @@ const ArticleCommentUI = () => (
   </div>
 );
 
-ArticleCommentUI.propTypes = {
+ArticleCommentsUI.propTypes = {
 
 };
   
-export default ArticleCommentUI;
+export default ArticleCommentsUI;

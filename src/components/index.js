@@ -1,7 +1,7 @@
 import AddCommentUI from './AddCommentUI';
 import App from './App';
 import ArticleBodyUI from './ArticleBodyUI';
-import ArticleCommentUI from './ArticleCommentUI';
+import ArticleCommentsUI from './ArticleCommentsUI';
 import ArticlesByTopicUI from './ArticlesByTopicUI';
 import Footer from './Footer';
 import HomepageUI from './HomepageUI';
@@ -18,7 +18,7 @@ export {
   AddCommentUI,
   App,
   ArticleBodyUI,
-  ArticleCommentUI,
+  ArticleCommentsUI,
   ArticlesByTopicUI,
   Footer,
   HomepageUI,
