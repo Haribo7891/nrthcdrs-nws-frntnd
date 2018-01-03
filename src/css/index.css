@@ -8,3 +8,11 @@ body {
   text-align: center;
   background-color: rgba(245, 184, 184, 0.774);
 }
+
+.navbar-color {
+  background-color: rgba(236, 255, 154, 0.774);
+}
+
+.footer-color {
+  background-color: rgba(90, 181, 255, 0.774);
+}
