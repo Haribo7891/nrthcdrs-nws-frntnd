@@ -18,14 +18,14 @@ class User extends Component {
     return (
       <div className="user container">
         <h1>Author Information</h1>
-        {error && <Redirect to="/404" />}
-        {loading ? <Loading /> : (
+        { error && <Redirect to="/404" /> }
+        { loading ? <Loading /> : (
           <div className="card border-secondary">
             <UserBodyUI 
               userData={ userData }
             />
           </div>
-        )}
+        ) }
       </div>
     );
   }
