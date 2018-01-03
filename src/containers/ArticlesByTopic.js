@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PT from 'prop-types';
 
 import { fetchArticlesByTopic } from '../actions';
-import { Loading } from '../components';
+import { Loading, ArticlesByTopicUI } from '../components';
 
 class ArticlesByTopic extends Component {
   
@@ -33,7 +33,9 @@ class ArticlesByTopic extends Component {
                 { Object.values(articles)
                   .map((article, i) => (
                     <div key={ i } className="card-group">
-                      Hello articles
+                      <ArticlesByTopicUI 
+                        article={ article }
+                      />
                     </div>
                   ))}
               </div>
