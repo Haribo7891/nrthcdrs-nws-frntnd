@@ -7,6 +7,7 @@ import fetchTopics from './fetchTopics';
 import fetchUser from './fetchUser';
 import postComment from './postComment';
 import putArticleVote from './putArticleVote';
+import putCommentVote from './putCommentVote';
 
 export {
   deleteComment,
@@ -17,5 +18,6 @@ export {
   fetchTopics,
   fetchUser,
   postComment,
-  putArticleVote
+  putArticleVote,
+  putCommentVote
 };
