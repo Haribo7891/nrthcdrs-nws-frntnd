@@ -1,3 +1,4 @@
+import AddCommentUI from './AddCommentUI';
 import App from './App';
 import ArticleBodyUI from './ArticleBodyUI';
 import ArticleCommentUI from './ArticleCommentUI';
@@ -13,6 +14,7 @@ import UserBodyUI from './UserBodyUI';
 import UserArticlesUI from './UserArticlesUI';
 
 export {
+  AddCommentUI,
   App,
   ArticleBodyUI,
   ArticleCommentUI,
