@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { Switch } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
+
+import { NoMatch } from '../components';
 
 class App extends Component {
   render () {
     return (
       <Switch>
-
+        <Route exact path='/*' component={ NoMatch } />
       </Switch>
     );
   }
