@@ -48,7 +48,7 @@ export default (prevState = initialState, action) => {
     return Object.assign({}, prevState, {
       loading: !prevState.loading,
       error: null,
-      data: []
+      data: {}
     });
   case types.POST_COMMENT_SUCCESS:
     return Object.assign({}, prevState, {
@@ -60,7 +60,7 @@ export default (prevState = initialState, action) => {
     return Object.assign({}, prevState, {
       loading: false,
       error: action.payload,
-      data: []
+      data: {}
     });
   default:
     return prevState;
