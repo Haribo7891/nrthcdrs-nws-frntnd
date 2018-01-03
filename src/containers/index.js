@@ -1,3 +1,4 @@
+import AddComment from './AddComment';
 import ArticleBody from './ArticleBody';
 import ArticleComments from './ArticleComments';
 import ArticlePage from './ArticlePage';
@@ -7,6 +8,7 @@ import Topics from './Topics';
 import User from './User';
 
 export {
+  AddComment,
   ArticleBody,
   ArticleComments,
   ArticlePage,
