@@ -17,14 +17,14 @@ class Homepage extends Component {
     return (
       <div className="homepage container">
         <h4>Check out the articles, then vote and comment on your favourite!</h4>
-        {error && <Redirect to="/404" />}
-        {loading ? <Loading /> : (
+        { error && <Redirect to="/404" /> }
+        { loading ? <Loading /> : (
           <div className="homepage-list">
             <HomepageUI 
               articles={ articles }
             />
           </div>
-        )}
+        ) }
       </div>
     );
   }

@@ -4,7 +4,7 @@ import PT from 'prop-types';
 
 const HomepageArticles = ({ articles }) => (
   <div className="list-item">
-    {Object.values(articles)
+    { Object.values(articles)
       .map((article, i) => (
         <div key={ i } className="card-group">
           <div className="card text-center border-info">
@@ -35,7 +35,7 @@ const HomepageArticles = ({ articles }) => (
             </div>
           </div>
         </div>
-      ))}
+      )) }
   </div> 
 );
 
