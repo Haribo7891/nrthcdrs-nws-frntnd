@@ -7,3 +7,5 @@ export const commentId = '5a1550719580da3500ab44eb';
 export const comment = 'Couldn\'t have said it better myself!';
 export const voteUp = 'UP';
 export const voteDown = 'DOWN';
+export const commentBody = 'Couldn\'t have said it better myself!';
+export const incorrectCommentId = 'a1b2c3a1b2c3a1b2c3';
