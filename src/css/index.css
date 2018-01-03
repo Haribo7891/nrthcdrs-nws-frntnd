@@ -16,3 +16,7 @@ body {
 .footer-color {
   background-color: rgba(90, 181, 255, 0.774);
 }
+
+.article-page-color, .actionButton, .img-button {
+  background-color: rgba(154, 201, 255, 0.774);
+}

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PT from 'prop-types';
 
 import { Loading } from '../components';
+import { ArticleBody } from '../containers';
 
 class ArticlePage extends Component {
   
@@ -11,18 +12,18 @@ class ArticlePage extends Component {
     const { loading, error } = this.props;
     return (
       <div className="container">
-        <div className="card border-secondary">
-          <div className="article-card-color">
-            *** Hello ArticleBody container ***
-          </div>        
-          { error && <Redirect to="/404" /> }
-          { loading ? <Loading /> : (
-            <div className="articleCard-text article-card-color">
+        { error && <Redirect to="/404" /> }
+        { loading ? <Loading /> : (
+          <div className="card border-secondary">
+            <div className="article-page-color">
+              <ArticleBody />
+            </div>        
+            <div className="articleCard-text article-page-color">
               <h4>Other user comments:</h4>
               *** Hello ArticleComments container ***
             </div>
-          )}
-        </div>
+          </div>
+        ) }
       </div>
     );
   }
