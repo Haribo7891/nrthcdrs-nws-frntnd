@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import NoMatch from './NoMatch';
 import SwitchRoutes from './SwitchRoutes';
 import TopicsUI from './TopicsUI';
+import UserBodyUI from './UserBodyUI';
 
 export {
   App,
@@ -13,5 +14,6 @@ export {
   Navbar,
   NoMatch,
   SwitchRoutes,
-  TopicsUI
+  TopicsUI,
+  UserBodyUI
 };

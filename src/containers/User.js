@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PT from 'prop-types';
 
 import { fetchUser } from '../actions';
-import { Loading } from '../components';
+import { Loading, UserBodyUI } from '../components';
 
 class User extends Component {
   
@@ -21,7 +21,9 @@ class User extends Component {
         {error && <Redirect to="/404" />}
         {loading ? <Loading /> : (
           <div className="card border-secondary">
-            Hello User
+            <UserBodyUI 
+              userData={ userData }
+            />
           </div>
         )}
       </div>
