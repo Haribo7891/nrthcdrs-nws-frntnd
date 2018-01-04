@@ -3,19 +3,20 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PT from 'prop-types';
 
-import { fetchArticleById } from '../actions';
+import { fetchArticleById, fetchCommentsByArticle } from '../actions';
 import { Loading } from '../components';
 import { ArticleBody, ArticleComments, AddComment } from '../containers';
 
 class ArticlePage extends Component {
   
   componentDidMount () {
-    const { fetchArticleById, match: { params: { articleId } } } = this.props;
+    const { fetchArticleById, fetchCommentsByArticle, match: { params: { articleId } } } = this.props;
     fetchArticleById(articleId);
+    fetchCommentsByArticle(articleId);
   }
 
   render () {
-    const { article, loading, error } = this.props;
+    const { article, comments, loading, error } = this.props;
     return (
       <div className="container">
         { error && <Redirect to="/404" /> }
@@ -29,7 +30,9 @@ class ArticlePage extends Component {
             </div>        
             <div className="articleCard-text article-page-color">
               <h4>Other user comments:</h4>
-              <ArticleComments />
+              <ArticleComments 
+                comments={ comments }
+              />
             </div>
           </div>
         ) }
@@ -41,10 +44,12 @@ class ArticlePage extends Component {
 ArticlePage.propTypes = {
   loading: PT.bool.isRequired,
   error: PT.any,
-  fetchArticleById: PT.func.isRequired
+  fetchArticleById: PT.func.isRequired,
+  fetchCommentsByArticle: PT.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
+  comments: state.commentsReducer.data,
   article: state.articlesReducer.data,
   loading: state.articlesReducer.loading,
   error: state.articlesReducer.error
@@ -53,6 +58,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   fetchArticleById: (articleId) => {
     dispatch(fetchArticleById(articleId));
+  },
+  fetchCommentsByArticle: (articleId) => {
+    dispatch(fetchCommentsByArticle(articleId));
   }
 });
 

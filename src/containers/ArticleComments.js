@@ -9,14 +9,20 @@ import { Votes } from '../containers';
 class ArticleComments extends Component {
   
   render () {
-    const { loading, error } = this.props;
+    const { comments, loading, error } = this.props;
     return (
       <div className="article-comments">
         { error && <Redirect to="/404" /> }
         { loading ? <Loading /> :
           <div className="articleCommentsUI">
-            <ArticleCommentsUI />
-            <Votes />
+            { Object.values(comments).map((comment, i) => (
+              <div key={ i } className="comment card border-success">
+                <ArticleCommentsUI 
+                  comment={ comment }
+                />
+                <Votes />
+              </div>
+            ))}
           </div>
         }
       </div>
@@ -25,6 +31,7 @@ class ArticleComments extends Component {
 }
 
 ArticleComments.propTypes = {
+  comments: PT.object.isRequired,
   loading: PT.bool.isRequired,
   error: PT.any,
 };
