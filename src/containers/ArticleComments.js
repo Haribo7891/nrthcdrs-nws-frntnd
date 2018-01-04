@@ -20,9 +20,11 @@ class ArticleComments extends Component {
                 <ArticleCommentsUI 
                   comment={ comment }
                 />
-                <Votes />
+                <Votes 
+                  commentVotes={ comment.votes }
+                />
               </div>
-            ))}
+            )) }
           </div>
         }
       </div>

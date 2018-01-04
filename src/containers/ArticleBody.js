@@ -18,7 +18,9 @@ class ArticleBody extends Component {
             <ArticleBodyUI 
               article={ article }
             />
-            <Votes />
+            <Votes 
+              articleVotes={ article.votes }
+            />
           </div>
         }
       </div>
