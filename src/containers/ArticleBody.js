@@ -9,13 +9,15 @@ import { Votes } from '../containers';
 class ArticleBody extends Component {
   
   render () {
-    const { loading, error } = this.props;
+    const { article, loading, error } = this.props;
     return (
       <div className="article-body">
         { error && <Redirect to="/404" /> }
         { loading ? <Loading /> :
           <div className="articleBodyUI">
-            <ArticleBodyUI />
+            <ArticleBodyUI 
+              article={ article }
+            />
             <Votes />
           </div>
         }
@@ -25,6 +27,7 @@ class ArticleBody extends Component {
 }
 
 ArticleBody.propTypes = {
+  article: PT.object.isRequired,
   loading: PT.bool.isRequired,
   error: PT.any,
 };
