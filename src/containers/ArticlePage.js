@@ -3,16 +3,38 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PT from 'prop-types';
 
-import { fetchArticleById, fetchCommentsByArticle } from '../actions';
+import { fetchArticleById, fetchCommentsByArticle, putArticleVote, putCommentVote, deleteComment } from '../actions';
 import { Loading } from '../components';
 import { ArticleBody, ArticleComments, AddComment } from '../containers';
 
 class ArticlePage extends Component {
   
+  constructor (props) {
+    super(props);
+    this.handleArticleVoteClick = this.handleArticleVoteClick.bind(this);
+    this.handleCommentVoteClick = this.handleCommentVoteClick.bind(this);
+    this.handleDeleteComment = this.handleDeleteComment.bind(this);
+  }
+
   componentDidMount () {
     const { fetchArticleById, fetchCommentsByArticle, match: { params: { articleId } } } = this.props;
     fetchArticleById(articleId);
     fetchCommentsByArticle(articleId);
+  }
+
+  handleArticleVoteClick (articleId, vote) {
+    const { putArticleVote } = this.props;
+    return () => putArticleVote(articleId, vote);
+  }
+
+  handleCommentVoteClick (commentId, vote) {
+    const { putCommentVote } = this.props;
+    return () => putCommentVote(commentId, vote);
+  }
+
+  handleDeleteComment (commentId) {
+    const { deleteComment } = this.props;
+    return () => deleteComment(commentId);
   }
 
   render () {
@@ -25,6 +47,7 @@ class ArticlePage extends Component {
             <div className="article-page-color">
               <ArticleBody 
                 article={ article }
+                handleArticleVoteClick={ this.handleArticleVoteClick }
               />
               <AddComment />
             </div>        
@@ -32,6 +55,8 @@ class ArticlePage extends Component {
               <h4>Other user comments:</h4>
               <ArticleComments 
                 comments={ comments }
+                handleCommentVoteClick={ this.handleCommentVoteClick }
+                handleDeleteComment={ this.handleDeleteComment }
               />
             </div>
           </div>
@@ -45,7 +70,10 @@ ArticlePage.propTypes = {
   loading: PT.bool.isRequired,
   error: PT.any,
   fetchArticleById: PT.func.isRequired,
-  fetchCommentsByArticle: PT.func.isRequired
+  fetchCommentsByArticle: PT.func.isRequired,
+  putArticleVote: PT.func.isRequired,
+  putCommentVote: PT.func.isRequired,
+  deleteComment: PT.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
@@ -61,6 +89,15 @@ const mapDispatchToProps = (dispatch) => ({
   },
   fetchCommentsByArticle: (articleId) => {
     dispatch(fetchCommentsByArticle(articleId));
+  },
+  putArticleVote: (articleId, vote) => {
+    dispatch(putArticleVote(articleId, vote));
+  },
+  putCommentVote: (commentId, vote) => {
+    dispatch(putCommentVote(commentId, vote));
+  },
+  deleteComment: (commentId) => {
+    dispatch(deleteComment(commentId));
   }
 });
 

@@ -3,13 +3,12 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PT from 'prop-types';
 
-import { Loading, ArticleBodyUI } from '../components';
-import { Votes } from '../containers';
+import { Loading, ArticleBodyUI, VoteArticleUI } from '../components';
 
 class ArticleBody extends Component {
-  
+
   render () {
-    const { article, loading, error } = this.props;
+    const { article, loading, error, handleArticleVoteClick } = this.props;
     return (
       <div className="article-body">
         { error && <Redirect to="/404" /> }
@@ -18,8 +17,10 @@ class ArticleBody extends Component {
             <ArticleBodyUI 
               article={ article }
             />
-            <Votes 
+            <VoteArticleUI 
               articleVotes={ article.votes }
+              articleId={ article._id }
+              handleArticleVoteClick={ handleArticleVoteClick }
             />
           </div>
         }
@@ -29,9 +30,7 @@ class ArticleBody extends Component {
 }
 
 ArticleBody.propTypes = {
-  article: PT.object.isRequired,
-  loading: PT.bool.isRequired,
-  error: PT.any,
+
 };
 
 const mapStateToProps = (state) => ({

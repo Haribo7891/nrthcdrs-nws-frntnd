@@ -3,13 +3,12 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PT from 'prop-types';
 
-import { Loading, ArticleCommentsUI } from '../components';
-import { Votes } from '../containers';
+import { Loading, ArticleCommentsUI, VoteCommentUI } from '../components';
 
 class ArticleComments extends Component {
-  
+
   render () {
-    const { comments, loading, error } = this.props;
+    const { comments, loading, error, handleCommentVoteClick, handleDeleteComment } = this.props;
     return (
       <div className="article-comments">
         { error && <Redirect to="/404" /> }
@@ -20,8 +19,12 @@ class ArticleComments extends Component {
                 <ArticleCommentsUI 
                   comment={ comment }
                 />
-                <Votes 
+                <VoteCommentUI 
                   commentVotes={ comment.votes }
+                  commentId={ comment._id }
+                  handleCommentVoteClick={ handleCommentVoteClick }
+                  deleteNorthcoder={ comment.created_by === 'northcoder' }
+                  handleDeleteComment={ handleDeleteComment }
                 />
               </div>
             )) }
@@ -33,9 +36,7 @@ class ArticleComments extends Component {
 }
 
 ArticleComments.propTypes = {
-  comments: PT.object.isRequired,
-  loading: PT.bool.isRequired,
-  error: PT.any,
+
 };
 
 const mapStateToProps = (state) => ({
