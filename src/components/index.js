@@ -1,4 +1,3 @@
-import AddCommentUI from './AddCommentUI';
 import App from './App';
 import ArticleBodyUI from './ArticleBodyUI';
 import ArticleCommentsUI from './ArticleCommentsUI';
@@ -16,7 +15,6 @@ import VoteArticleUI from './VoteArticleUI';
 import VoteCommentUI from './VoteCommentUI';
 
 export {
-  AddCommentUI,
   App,
   ArticleBodyUI,
   ArticleCommentsUI,

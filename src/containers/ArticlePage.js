@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PT from 'prop-types';
 
-import { fetchArticleById, fetchCommentsByArticle, putArticleVote, putCommentVote, deleteComment } from '../actions';
+import { fetchArticleById, fetchCommentsByArticle, putArticleVote, putCommentVote, deleteComment, postComment } from '../actions';
 import { Loading } from '../components';
 import { ArticleBody, ArticleComments, AddComment } from '../containers';
 
@@ -49,7 +49,9 @@ class ArticlePage extends Component {
                 article={ article }
                 handleArticleVoteClick={ this.handleArticleVoteClick }
               />
-              <AddComment />
+              <AddComment 
+                articleId={ article._id }
+              />
             </div>        
             <div className="articleCard-text article-page-color">
               <h4>Other user comments:</h4>
@@ -73,7 +75,8 @@ ArticlePage.propTypes = {
   fetchCommentsByArticle: PT.func.isRequired,
   putArticleVote: PT.func.isRequired,
   putCommentVote: PT.func.isRequired,
-  deleteComment: PT.func.isRequired
+  deleteComment: PT.func.isRequired,
+  postComment: PT.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
@@ -98,6 +101,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   deleteComment: (commentId) => {
     dispatch(deleteComment(commentId));
+  },
+  postComment: () => {
+    dispatch(postComment());
   }
 });
 
