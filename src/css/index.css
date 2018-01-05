@@ -67,3 +67,9 @@ body {
 .comment-color, .comment-vote-color {
   background-color: rgba(146, 230, 245, 0.774);
 }
+
+.footer-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
