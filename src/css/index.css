@@ -64,6 +64,6 @@ body {
   background-color: rgba(255, 211, 154, 0.774);
 }
 
-.comment-color {
+.comment-color, .comment-vote-color {
   background-color: rgba(146, 230, 245, 0.774);
 }

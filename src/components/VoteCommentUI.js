@@ -2,7 +2,7 @@ import React from 'react';
 import PT from 'prop-types';
 
 const VoteCommentUI = ({ commentVotes, commentId, handleCommentVoteClick, deleteNorthcoder, handleDeleteComment }) => (
-  <div className="buttonsContainer">
+  <div className="buttonsContainer comment-vote-color">
     <span>Vote: </span>
     <img src="/img/thumbs-up.svg" width="20px" alt="thumbs-up" onClick={ handleCommentVoteClick(commentId, 'UP') } />
     <span>{ commentVotes }</span>
