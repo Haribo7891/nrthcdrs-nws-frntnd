@@ -24,7 +24,9 @@ class AddComment extends Component {
           <fieldset>
             <div className="form-group">
               <textarea className="comment-input" type="text" rows="3" ref={ (node) => { input = node; } } placeholder="Type your comment here..." ></textarea>
-              <button className="btn btn-primary submit-comment" type="submit" >Submit</button>
+            </div>
+            <div className="form-group">
+              <button className="btn btn-primary submit-comment" type="submit" >Submit Comment</button>
             </div>
           </fieldset>     
         </form>
