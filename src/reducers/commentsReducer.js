@@ -52,9 +52,12 @@ export default (prevState = initialState, action) => {
     });
   case types.POST_COMMENT_SUCCESS:
     return Object.assign({}, prevState, {
-      loading: false,
+      loading: false, 
       error: null,
-      data: action.payload
+      data: { 
+        ...prevState.data, 
+        [action.payload._id]: action.payload 
+      } 
     });
   case types.POST_COMMENT_FAILURE:
     return Object.assign({}, prevState, {
@@ -72,7 +75,10 @@ export default (prevState = initialState, action) => {
     return Object.assign({}, prevState, {
       loading: false,
       error: null,
-      data: action.payload
+      data: { 
+        ...prevState.data, 
+        [action.payload._id]: action.payload 
+      } 
     });
   case types.PUT_COMMENT_VOTE_FAILURE:
     return Object.assign({}, prevState, {
