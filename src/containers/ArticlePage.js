@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PT from 'prop-types';
 
-import { fetchArticleById, fetchCommentsByArticle, putArticleVote, putCommentVote, deleteComment, postComment } from '../actions';
+import { fetchArticleById, fetchCommentsByArticle, putArticleVote, putCommentVote, deleteComment } from '../actions';
 import { Loading } from '../components';
 import { ArticleBody, ArticleComments, AddComment } from '../containers';
 
@@ -69,22 +69,37 @@ class ArticlePage extends Component {
 }
 
 ArticlePage.propTypes = {
+  article: PT.array.isRequired,
+  comments: PT.array.isRequired,
   loading: PT.bool.isRequired,
   error: PT.any,
   fetchArticleById: PT.func.isRequired,
   fetchCommentsByArticle: PT.func.isRequired,
   putArticleVote: PT.func.isRequired,
   putCommentVote: PT.func.isRequired,
-  deleteComment: PT.func.isRequired,
-  postComment: PT.func.isRequired
+  deleteComment: PT.func.isRequired
 };
 
-const mapStateToProps = (state) => ({
-  comments: state.commentsReducer.data,
-  article: state.articlesReducer.data,
-  loading: state.articlesReducer.loading,
-  error: state.articlesReducer.error
-});
+const mapStateToProps = (state) => {
+  const {
+    data: article,
+    loading: articlesLoading,
+    error: articlesError
+  } = state.articlesReducer;
+
+  const {
+    data: comments,
+    loading: commentsLoading,
+    error: commentsError
+  } = state.commentsReducer;
+
+  return {
+    article,
+    comments,
+    loading: articlesLoading || commentsLoading,
+    error: articlesError || commentsError
+  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
   fetchArticleById: (articleId) => {
@@ -101,9 +116,6 @@ const mapDispatchToProps = (dispatch) => ({
   },
   deleteComment: (commentId) => {
     dispatch(deleteComment(commentId));
-  },
-  postComment: () => {
-    dispatch(postComment());
   }
 });
 

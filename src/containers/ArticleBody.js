@@ -30,15 +30,10 @@ class ArticleBody extends Component {
 }
 
 ArticleBody.propTypes = {
-
+  article: PT.array.isRequired,
+  loading: PT.bool.isRequired,
+  error: PT.any,
+  handleArticleVoteClick: PT.func.isRequired
 };
 
-const mapStateToProps = (state) => ({
-
-});
-
-const mapDispatchToProps = (dispatch) => ({
-
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(ArticleBody);
+export default connect(null, null)(ArticleBody);

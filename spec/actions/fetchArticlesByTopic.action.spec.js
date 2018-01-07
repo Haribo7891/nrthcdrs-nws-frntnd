@@ -39,7 +39,7 @@ describe('Action Creator: fetchArticlesByTopic', () => {
   it('Dispatches FETCH_ARTICLES_BY_TOPIC_FAILURE when fetching articles by topic responds with an error', () => {
     nock(API_URL)
       .get(`/topics/${ topic }/articles`)
-      .replyWithError({ 'message': 'error' });
+      .replyWithError({ message: 'error' });
       
     const expectedActions = [
       fetchArticlesByTopicRequest(topic),

@@ -37,7 +37,7 @@ describe('Action Creator: fetchArticles', () => {
   it('Dispatches FETCH_ARTICLES_FAILURE when fetching all articles responds with an error', () => {
     nock(API_URL)
       .get('/articles')
-      .replyWithError({ 'message': 'error' });
+      .replyWithError({ message: 'error' });
       
     const expectedActions = [
       fetchArticlesRequest(),

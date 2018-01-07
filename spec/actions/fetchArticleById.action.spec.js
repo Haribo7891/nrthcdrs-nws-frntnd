@@ -39,7 +39,7 @@ describe('Action Creator: fetchArticleById', () => {
   it('Dispatches FETCH_ARTICLE_BY_ID_FAILURE when fetching all articles responds with an error', () => {
     nock(API_URL)
       .get(`/articles/${ incorrectArticleId }`)
-      .replyWithError({ 'message': 'error' });
+      .replyWithError({ message: 'error' });
       
     const expectedActions = [
       fetchArticleByIdRequest(incorrectArticleId),

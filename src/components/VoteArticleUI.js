@@ -15,4 +15,5 @@ VoteArticleUI.propTypes = {
   handleArticleVoteClick: PT.func.isRequired,
   articleId: PT.string.isRequired,
 };
+
 export default VoteArticleUI;

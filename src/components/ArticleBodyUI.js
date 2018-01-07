@@ -34,7 +34,7 @@ const ArticleBodyUI = ({ article: { title, created_by, belongs_to, body } }) => 
 );
 
 ArticleBodyUI.propTypes = {
-  article: PT.object.isRequired
+  article: PT.array.isRequired
 };
-  
+
 export default ArticleBodyUI;

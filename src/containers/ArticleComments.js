@@ -36,15 +36,11 @@ class ArticleComments extends Component {
 }
 
 ArticleComments.propTypes = {
-
+  comments: PT.object.isRequired,
+  loading: PT.bool.isRequired,
+  error: PT.any,
+  handleCommentVoteClick: PT.func.isRequired,
+  handleDeleteComment: PT.func.isRequired
 };
 
-const mapStateToProps = (state) => ({
-
-});
-
-const mapDispatchToProps = (dispatch) => ({
-
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(ArticleComments);
+export default connect(null, null)(ArticleComments);

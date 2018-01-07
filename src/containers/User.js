@@ -54,12 +54,26 @@ User.propTypes = {
   fetchArticles: PT.func.isRequired
 };
 
-const mapStateToProps = (state) => ({
-  articles: state.articlesReducer.data,  
-  userData: state.userReducer.data,
-  loading: state.userReducer.loading,
-  error: state.userReducer.error
-});
+const mapStateToProps = (state) => {
+  const {
+    data: articles,
+    loading: articlesLoading,
+    error: articlesError
+  } = state.articlesReducer;
+
+  const {
+    data: userData,
+    loading: userLoading,
+    error: userError
+  } = state.userReducer;
+
+  return {
+    articles,
+    userData,
+    loading: articlesLoading || userLoading,
+    error: articlesError || userError
+  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
   fetchUser: (username) => {

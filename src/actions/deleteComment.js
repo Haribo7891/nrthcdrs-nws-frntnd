@@ -22,7 +22,7 @@ export default (commentId) => {
     dispatch(deleteCommentRequest(commentId));
     return axios.delete(`${ API_URL }/comments/${ commentId }`)
       .then((res) => {
-        dispatch(deleteCommentSuccess(res.data));
+        dispatch(deleteCommentSuccess(res.data.comment));
       })
       .catch((error) => {
         dispatch(deleteCommentFailure(error.message));

@@ -6,7 +6,7 @@ const UserArticlesUI = ({ article }) => (
   <div className="user-article-card-color card-body">
     <blockquote className="card-blockquote">
       <div className="card-title">
-        <h5><Link to={ { pathname: `/articles/${ article._id }/comments`, state: article } }>{ article.title }</Link></h5>
+        <h5><Link to={ `/articles/${ article._id }/comments` }>{ article.title }</Link></h5>
         <p></p>
       </div>
       <div className="footer">

@@ -25,11 +25,11 @@ describe('Action Creator: postComment', () => {
   it('Dispatches POST_COMMENT_SUCCESS when posting a comment responds with 201 and data', () => {
     nock(API_URL)
       .post(`/articles/${ articleId }/comments`, { comment })
-      .reply(201, { comment: { body: comment, created_by: 'northcoder' } });
+      .reply(201, { comment });
       
     const expectedActions = [
       postCommentRequest(articleId, comment),
-      postCommentSuccess([{ body: comment, created_by: 'northcoder' }])
+      postCommentSuccess(comment)
     ];
 
     const store = mockStore();
@@ -42,7 +42,7 @@ describe('Action Creator: postComment', () => {
   it('Dispatches POST_COMMENT_FAILURE when posting a comment responds with an error', () => {
     nock(API_URL)
       .post(`/articles/${ articleId }/comments`, { comment })
-      .replyWithError({ 'message': 'error' });
+      .replyWithError({ message: 'error' });
       
     const expectedActions = [
       postCommentRequest(articleId, comment),

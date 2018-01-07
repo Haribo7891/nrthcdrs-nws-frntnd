@@ -21,8 +21,8 @@ export default (articleId) => {
   return (dispatch) => {
     dispatch(fetchArticleByIdRequest(articleId));
     return axios.get(`${ API_URL }/articles/${ articleId }`)
-      .then(({ data: { article } }) => {
-        dispatch(fetchArticleByIdSuccess(article));
+      .then((res) => {
+        dispatch(fetchArticleByIdSuccess(res.data.article));
       })
       .catch((error) => {
         dispatch(fetchArticleByIdFailure(error.message));

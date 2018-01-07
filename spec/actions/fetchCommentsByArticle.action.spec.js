@@ -39,7 +39,7 @@ describe('Action Creator: fetchCommentsByArticle', () => {
   it('Dispatches FETCH_COMMENTS_BY_ARTICLE_FAILURE when fetching comments by article responds with an error', () => {
     nock(API_URL)
       .get(`/articles/${ articleId }/comments`)
-      .replyWithError({ 'message': 'error' });
+      .replyWithError({ message: 'error' });
       
     const expectedActions = [
       fetchCommentsByArticleRequest(articleId),

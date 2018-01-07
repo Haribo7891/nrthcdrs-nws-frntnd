@@ -9,7 +9,7 @@ import deleteComment, {
   deleteCommentFailure
 } from '../../src/actions/deleteComment';
 
-import { commentId } from '../utils';
+import { commentId, comment, incorrectCommentId } from '../utils';
 
 import { API_URL } from '../../src/config/index';
 
@@ -22,11 +22,11 @@ describe('Action Creator: deleteComment', () => {
   it('Dispatches DELETE_COMMENT_SUCCESS when deleting a comment with correct commentId responds with 204 and data', () => {
     nock(API_URL)
       .delete(`/comments/${ commentId }`)
-      .reply(204, {});
+      .reply(204, { comment });
       
     const expectedActions = [
       deleteCommentRequest(commentId),
-      deleteCommentSuccess({})
+      deleteCommentSuccess(comment)
     ];
 
     const store = mockStore();
@@ -37,10 +37,9 @@ describe('Action Creator: deleteComment', () => {
       });
   });
   it('Dispatches DELETE_COMMENT_FAILURE when deleting a comment with incorrect commentId responds with an error', () => {
-    const incorrectCommentId = 'a1b2c3a1b2c3a1b2c3';
     nock(API_URL)
       .delete(`/comments/${ incorrectCommentId }`)
-      .replyWithError({ 'message': 'error' });
+      .replyWithError({ message: 'error' });
       
     const expectedActions = [
       deleteCommentRequest(incorrectCommentId),

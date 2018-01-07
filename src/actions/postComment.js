@@ -23,9 +23,9 @@ export const postCommentFailure = (error) => ({
 export default (articleId, comment) => {
   return (dispatch) => {
     dispatch(postCommentRequest(articleId, comment));
-    return axios.post(`${ API_URL }/articles/${ articleId }/comments`, { comment: comment })
-      .then(({ data }) => {
-        dispatch(postCommentSuccess([data.comment]));
+    return axios.post(`${ API_URL }/articles/${ articleId }/comments`, { comment })
+      .then((res) => {
+        dispatch(postCommentSuccess(res.data.comment));
       })
       .catch((error) => {
         dispatch(postCommentFailure(error.message));

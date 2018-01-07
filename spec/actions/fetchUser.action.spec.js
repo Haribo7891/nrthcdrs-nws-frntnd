@@ -39,7 +39,7 @@ describe('Action Creator: fetchUser', () => {
   it('Dispatches FETCH_USER_FAILURE when fetching a user responds with an error', () => {
     nock(API_URL)
       .get(`/users/${ username }`)
-      .replyWithError({ 'message': 'error' });
+      .replyWithError({ message: 'error' });
       
     const expectedActions = [
       fetchUserRequest(username),

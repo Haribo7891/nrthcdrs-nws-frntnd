@@ -12,7 +12,7 @@ const TopicsUI = ({ topics }) => (
         .map((topic, i) => (
           <span key={ i } className="">
             <span className="nav-item">
-              <NavLink className="nav-link list-inline-item badge badge-pill badge-light" to={ `/topics/${ topic.slug }/articles` }>{ topic.slug }</NavLink>                
+              <NavLink className="nav-link list-inline-item badge badge-pill badge-light" to={ `/topics/${ topic.slug }/articles` }>{ topic.slug.toUpperCase() }</NavLink>                
             </span>
           </span>
         )) }

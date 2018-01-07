@@ -8,6 +8,7 @@ const UserBodyUI = ({ userData }) => {
     currentUserUsername = userData.user.username;
     currentUserName = userData.user.name;
   }
+  
   return (
     <div className="card-body user-info-header">
       <div className="card-title">

@@ -14,7 +14,9 @@ import {
   voteUp,
   voteDown,
   commentBody,
-  incorrectCommentId
+  incorrectCommentId,
+  commentVoteUp,
+  commentVoteDown
 } from '../utils';
 
 import { API_URL } from '../../src/config/index';
@@ -26,18 +28,13 @@ describe('Action Creator: putCommentVote', () => {
     nock.cleanAll();
   });
   it('Dispatches PUT_COMMENT_VOTE_SUCCESS when voting a comment UP responds with 200 and data', () => {
-    const comment = {
-      _id: commentId,
-      body: commentBody,
-      votes: 1
-    };
     nock(API_URL)
       .put(`/comments/${ commentId }?vote=${ voteUp }`)
-      .reply(200, { comment });
+      .reply(200, { comment: commentVoteUp });
       
     const expectedActions = [
       putCommentVoteRequest(commentId, voteUp),
-      putCommentVoteSuccess(comment)
+      putCommentVoteSuccess(commentVoteUp)
     ];
 
     const store = mockStore();
@@ -48,18 +45,13 @@ describe('Action Creator: putCommentVote', () => {
       });
   });
   it('Dispatches PUT_COMMENT_VOTE_SUCCESS when voting a comment DOWN responds with 200 and data', () => {
-    const comment = {
-      _id: commentId,
-      body: commentBody,
-      votes: 0
-    };
     nock(API_URL)
       .put(`/comments/${ commentId }?vote=${ voteDown }`)
-      .reply(200, { comment });
+      .reply(200, { comment: commentVoteDown });
       
     const expectedActions = [
       putCommentVoteRequest(commentId, voteDown),
-      putCommentVoteSuccess(comment)
+      putCommentVoteSuccess(commentVoteDown)
     ];
 
     const store = mockStore();
@@ -72,7 +64,7 @@ describe('Action Creator: putCommentVote', () => {
   it('Dispatches PUT_COMMENT_VOTE_FAILURE when voting a comment responds with an error', () => {
     nock(API_URL)
       .put(`/comments/${ incorrectCommentId }?vote=${ voteUp }`)
-      .replyWithError({ 'message': 'error' });
+      .replyWithError({ message: 'error' });
       
     const expectedActions = [
       putCommentVoteRequest(incorrectCommentId, voteUp),

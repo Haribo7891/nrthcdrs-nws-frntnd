@@ -13,7 +13,9 @@ import {
   articleId,
   voteUp,
   voteDown,
-  incorrectArticleId
+  incorrectArticleId,
+  articleVoteUp,
+  articleVoteDown
 } from '../utils';
 
 import { API_URL } from '../../src/config/index';
@@ -25,17 +27,13 @@ describe('Action Creator: putArticleVote', () => {
     nock.cleanAll();
   });
   it('Dispatches PUT_ARTICLE_VOTE_SUCCESS when voting an article UP responds with 200 and data', () => {
-    const data = {
-      _id: articleId,
-      votes: 1
-    };
     nock(API_URL)
       .put(`/articles/${ articleId }?vote=${ voteUp }`)
-      .reply(200, { article: data });
+      .reply(200, { article: articleVoteUp });
       
     const expectedActions = [
       putArticleVoteRequest(articleId, voteUp),
-      putArticleVoteSuccess(data)
+      putArticleVoteSuccess(articleVoteUp)
     ];
 
     const store = mockStore();
@@ -46,17 +44,13 @@ describe('Action Creator: putArticleVote', () => {
       });
   });
   it('Dispatches PUT_ARTICLE_VOTE_SUCCESS when voting an article DOWN responds with 200 and data', () => {
-    const data = {
-      _id: articleId,
-      votes: 0
-    };
     nock(API_URL)
       .put(`/articles/${ articleId }?vote=${ voteDown }`)
-      .reply(200, { article: data });
+      .reply(200, { article: articleVoteDown });
       
     const expectedActions = [
       putArticleVoteRequest(articleId, voteDown),
-      putArticleVoteSuccess(data)
+      putArticleVoteSuccess(articleVoteDown)
     ];
 
     const store = mockStore();
@@ -69,7 +63,7 @@ describe('Action Creator: putArticleVote', () => {
   it('Dispatches PUT_ARTICLE_VOTE_FAILURE when voting an article responds with an error', () => {
     nock(API_URL)
       .put(`/articles/${ incorrectArticleId }?vote=${ voteUp }`)
-      .replyWithError({ 'message': 'error' });
+      .replyWithError({ message: 'error' });
       
     const expectedActions = [
       putArticleVoteRequest(incorrectArticleId, voteUp),

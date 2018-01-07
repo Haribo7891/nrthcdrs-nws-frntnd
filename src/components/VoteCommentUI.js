@@ -16,5 +16,7 @@ VoteCommentUI.propTypes = {
   handleCommentVoteClick: PT.func.isRequired,
   handleDeleteComment: PT.func.isRequired,
   commentId: PT.string.isRequired,
+  deleteNorthcoder: PT.bool.isRequired
 };
+
 export default VoteCommentUI;
