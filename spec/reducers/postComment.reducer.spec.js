@@ -38,7 +38,7 @@ describe('Reducer: postComment', () => {
     const newState = postCommentReducer(prevState, action);
     expect(newState.loading).to.be.false;
     expect(newState.error).to.be.null;
-    expect(newState.data).to.eql(data);
+    expect(newState.data).to.eql({ undefined: data });
   });
   it('Handles POST_COMMENT_FAILURE correctly', () => {
     const prevState = postCommentReducer(undefined, postCommentRequest());

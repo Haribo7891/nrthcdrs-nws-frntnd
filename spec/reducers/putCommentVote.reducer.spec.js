@@ -38,7 +38,7 @@ describe('Reducer: putCommentVote', () => {
     const newState = putCommentVoteReducer(prevState, action);
     expect(newState.loading).to.be.false;
     expect(newState.error).to.be.null;
-    expect(newState.data).to.eql(data);
+    expect(newState.data).to.eql({ undefined: data });
   });
   it('Handles PUT_COMMENT_VOTE_FAILURE correctly', () => {
     const prevState = putCommentVoteReducer(undefined, putCommentVoteRequest());
