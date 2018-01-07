@@ -5,13 +5,16 @@ import PT from 'prop-types';
 const TopicsUI = ({ topics }) => (
   <div className="topic-links">
     <div className="navbar-links">
+      <div className="topic-title">
+        Filter by topic:
+      </div>
       { Object.values(topics)
         .map((topic, i) => (
-          <ul key={ i } className="navbar-nav list-inline">
-            <li className="nav-item">
+          <span key={ i } className="">
+            <span className="nav-item">
               <NavLink className="nav-link list-inline-item badge badge-pill badge-light" to={ `/topics/${ topic.slug }/articles` }>{ topic.slug }</NavLink>                
-            </li>
-          </ul>
+            </span>
+          </span>
         )) }
     </div>
   </div>
