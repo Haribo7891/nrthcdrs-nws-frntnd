@@ -7,7 +7,7 @@ const ArticlesByTopicUI = ({ article: { _id, votes, created_by, title } }) => (
     <div className="article-list-color card-body">
       <blockquote className="card-blockquote">
         <div className="card-title">
-          <h5><Link to={ `/articles/${ _id }/comments` }>{ title }</Link></h5>
+          <h5><Link to={ `/articles/${ _id }` }>{ title }</Link></h5>
           <p></p>
         </div>
         <div className="footer">

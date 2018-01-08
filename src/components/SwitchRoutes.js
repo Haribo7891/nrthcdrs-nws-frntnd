@@ -8,7 +8,7 @@ const SwitchRoutes = () => (
   <Switch>
     <Route exact path='/' component={ Homepage } />
     <Route exact path='/topics/:topic/articles' component={ ArticlesByTopic } />
-    <Route exact path='/articles/:articleId/comments' component={ ArticlePage } />
+    <Route exact path='/articles/:articleId' component={ ArticlePage } />
     <Route exact path='/user/:username' component={ User } />
     <Route exact path='/*' component={ NoMatch } />
   </Switch>
