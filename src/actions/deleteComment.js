@@ -17,15 +17,13 @@ export const deleteCommentFailure = (error) => ({
   payload: error
 });
 
-export default (commentId) => {
-  return (dispatch) => {
-    dispatch(deleteCommentRequest(commentId));
-    return axios.delete(`${ API_URL }/comments/${ commentId }`)
-      .then((res) => {
-        dispatch(deleteCommentSuccess(res.data.comment));
-      })
-      .catch((error) => {
-        dispatch(deleteCommentFailure(error.message));
-      });
-  };
+export default (commentId) => (dispatch) => {
+  dispatch(deleteCommentRequest(commentId));
+  return axios.delete(`${ API_URL }/comments/${ commentId }`)
+    .then((res) => {
+      dispatch(deleteCommentSuccess(res.data.comment));
+    })
+    .catch((error) => {
+      dispatch(deleteCommentFailure(error.message));
+    });
 };

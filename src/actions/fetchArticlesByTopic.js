@@ -17,23 +17,18 @@ export const fetchArticlesByTopicFailure = (error) => ({
   payload: error
 });
 
-export default (topic) => {
-  return (dispatch) => {
-    dispatch(fetchArticlesByTopicRequest(topic));
-    return axios.get(`${ API_URL }/topics/${ topic }/articles`)
-      .then((res) => {
-        return res.data.articles.sort((a, b) => {
-          return b.votes - a.votes;
-        });
-      })
-      .then((sortedArticles) => {
-        dispatch(fetchArticlesByTopicSuccess(sortedArticles));
-      })
-      // .then((res) => {
-      //   dispatch(fetchArticlesByTopicSuccess(res.data.articles));
-      // })
-      .catch((error) => {
-        dispatch(fetchArticlesByTopicFailure(error.message));
+export default (topic) => (dispatch) => {
+  dispatch(fetchArticlesByTopicRequest(topic));
+  return axios.get(`${ API_URL }/topics/${ topic }/articles`)
+    .then((res) => {
+      return res.data.articles.sort((a, b) => {
+        return b.votes - a.votes;
       });
-  };
+    })
+    .then((sortedArticles) => {
+      dispatch(fetchArticlesByTopicSuccess(sortedArticles));
+    })
+    .catch((error) => {
+      dispatch(fetchArticlesByTopicFailure(error.message));
+    });
 };

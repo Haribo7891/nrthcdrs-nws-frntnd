@@ -17,15 +17,13 @@ export const fetchUserFailure = (error) => ({
   payload: error
 });
 
-export default (username) => {
-  return (dispatch) => {
-    dispatch(fetchUserRequest(username));
-    return axios.get(`${ API_URL }/users/${ username }`)
-      .then((res) => {
-        dispatch(fetchUserSuccess(res.data));
-      })
-      .catch((error) => {
-        dispatch(fetchUserFailure(error.message));
-      });
-  };
+export default (username) => (dispatch) => {
+  dispatch(fetchUserRequest(username));
+  return axios.get(`${ API_URL }/users/${ username }`)
+    .then((res) => {
+      dispatch(fetchUserSuccess(res.data));
+    })
+    .catch((error) => {
+      dispatch(fetchUserFailure(error.message));
+    });
 };

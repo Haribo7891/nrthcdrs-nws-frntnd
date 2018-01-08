@@ -20,15 +20,13 @@ export const putArticleVoteFailure = (error) => ({
   payload: error
 });
 
-export default (articleId, vote) => {
-  return (dispatch) => {
-    dispatch(putArticleVoteRequest(articleId, vote));
-    return axios.put(`${ API_URL }/articles/${ articleId }?vote=${ vote }`)
-      .then((res) => {
-        dispatch(putArticleVoteSuccess(res.data.article));
-      })
-      .catch((error) => {
-        dispatch(putArticleVoteFailure(error.message));
-      });
-  };
+export default (articleId, vote) => (dispatch) => {
+  dispatch(putArticleVoteRequest(articleId, vote));
+  return axios.put(`${ API_URL }/articles/${ articleId }?vote=${ vote }`)
+    .then((res) => {
+      dispatch(putArticleVoteSuccess(res.data.article));
+    })
+    .catch((error) => {
+      dispatch(putArticleVoteFailure(error.message));
+    });
 };

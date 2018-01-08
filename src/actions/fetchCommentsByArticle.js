@@ -17,23 +17,18 @@ export const fetchCommentsByArticleFailure = (error) => ({
   payload: error
 });
 
-export default (articleId) => {
-  return (dispatch) => {
-    dispatch(fetchCommentsByArticleRequest(articleId));
-    return axios.get(`${ API_URL }/articles/${ articleId }/comments`)
-      .then((res) => {
-        return res.data.comments.sort((a, b) => {
-          return b.votes - a.votes;
-        });
-      })
-      .then((sortedComments) => {
-        dispatch(fetchCommentsByArticleSuccess(sortedComments));
-      })
-      // .then((res) => {
-      //   dispatch(fetchCommentsByArticleSuccess(res.data.comments));
-      // })
-      .catch((error) => {
-        dispatch(fetchCommentsByArticleFailure(error.message));
+export default (articleId) => (dispatch) => {
+  dispatch(fetchCommentsByArticleRequest(articleId));
+  return axios.get(`${ API_URL }/articles/${ articleId }/comments`)
+    .then((res) => {
+      return res.data.comments.sort((a, b) => {
+        return b.votes - a.votes;
       });
-  };
+    })
+    .then((sortedComments) => {
+      dispatch(fetchCommentsByArticleSuccess(sortedComments));
+    })
+    .catch((error) => {
+      dispatch(fetchCommentsByArticleFailure(error.message));
+    });
 };

@@ -16,23 +16,18 @@ export const fetchTopicsFailure = (error) => ({
   payload: error
 });
 
-export default () => {
-  return (dispatch) => {
-    dispatch(fetchTopicsRequest());
-    return axios.get(`${ API_URL }/topics`)
-      .then((res) => {
-        return res.data.topics.sort((a, b) => {
-          return a.slug - b.slug;
-        });
-      })
-      .then((sortedTopics) => {
-        dispatch(fetchTopicsSuccess(sortedTopics));
-      })
-      // .then((res) => {
-      //   dispatch(fetchTopicsSuccess(res.data.topics));
-      // })
-      .catch((error) => {
-        dispatch(fetchTopicsFailure(error.message));
+export default () => (dispatch) => {
+  dispatch(fetchTopicsRequest());
+  return axios.get(`${ API_URL }/topics`)
+    .then((res) => {
+      return res.data.topics.sort((a, b) => {
+        return a.slug - b.slug;
       });
-  };
+    })
+    .then((sortedTopics) => {
+      dispatch(fetchTopicsSuccess(sortedTopics));
+    })
+    .catch((error) => {
+      dispatch(fetchTopicsFailure(error.message));
+    });
 };

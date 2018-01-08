@@ -17,15 +17,13 @@ export const fetchArticleByIdFailure = (error) => ({
   payload: error
 });
 
-export default (articleId) => {
-  return (dispatch) => {
-    dispatch(fetchArticleByIdRequest(articleId));
-    return axios.get(`${ API_URL }/articles/${ articleId }`)
-      .then((res) => {
-        dispatch(fetchArticleByIdSuccess(res.data.article));
-      })
-      .catch((error) => {
-        dispatch(fetchArticleByIdFailure(error.message));
-      });
-  };
+export default (articleId) => (dispatch) => {
+  dispatch(fetchArticleByIdRequest(articleId));
+  return axios.get(`${ API_URL }/articles/${ articleId }`)
+    .then((res) => {
+      dispatch(fetchArticleByIdSuccess(res.data.article));
+    })
+    .catch((error) => {
+      dispatch(fetchArticleByIdFailure(error.message));
+    });
 };
