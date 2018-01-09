@@ -63,11 +63,10 @@ export default (prevState = initialState, action) => {
       data: {}
     });
   case types.PUT_ARTICLE_VOTE_REQUEST:
-    return Object.assign({}, prevState, {
-      loading: !prevState.loading,
-      error: null,
-      data: {}
-    });
+    const newState = Object.assign({}, prevState);
+    newState.data = Object.assign({}, prevState.data);
+    newState.data.votes = action.payload.votes;
+    return newState;
   case types.PUT_ARTICLE_VOTE_SUCCESS:
     return Object.assign({}, prevState, {
       loading: false,

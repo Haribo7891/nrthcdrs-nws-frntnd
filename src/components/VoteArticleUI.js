@@ -1,19 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PT from 'prop-types';
 
-const VoteArticleUI = ({ articleVotes, articleId, handleArticleVoteClick }) => (
-  <div className="buttonsContainer">
-    <span>Vote: </span>
-    <img src="/img/thumbs-up.svg" width="20px" alt="thumbs-up" onClick={ handleArticleVoteClick(articleId, 'UP') } />
-    <span>{ articleVotes }</span>
-    <img src="/img/thumbs-down.svg" width="20px" alt="thumbs-down" onClick={ handleArticleVoteClick(articleId, 'DOWN') } />
-  </div>
-);
+class VoteArticleUI extends Component {
+  
+  handleArticleVoteUpClick = (event) => {
+    event.preventDefault()
+    const { handleArticleVote, articleId } = this.props;
+    handleArticleVote(event, articleId, 'UP')
+  }
+  
+  handleArticleVoteDownClick = (event) => {
+    event.preventDefault()
+    const { handleArticleVote, articleId } = this.props;
+    handleArticleVote(event, articleId, 'DOWN')
+  }
+
+  render () {
+    const { articleVotes } = this.props;
+    return (
+      <div className="buttonsContainer">
+        <a onClick={ this.handleArticleVoteUpClick }><img src="/img/thumbs-up.svg" width="20px" alt="thumbs-up"/></a>
+        <span>{ articleVotes }</span>
+        <a onClick={ this.handleArticleVoteDownClick }><img src="/img/thumbs-down.svg" width="20px" alt="thumbs-down"/></a>
+      </div>
+    );
+  }
+}
 
 VoteArticleUI.propTypes = {
   articleVotes: PT.number.isRequired,
-  handleArticleVoteClick: PT.func.isRequired,
-  articleId: PT.string.isRequired,
+  handleArticleVote: PT.func.isRequired,
+  articleId: PT.string.isRequired
 };
 
 export default VoteArticleUI;

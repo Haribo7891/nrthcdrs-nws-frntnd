@@ -17,6 +17,7 @@
       "react"
     ],
     "rules": {
+      "no-case-declarations": ["off"],
       "no-unused-vars": ["warn"],
       "no-undef": ["warn"],
       "no-console": ["warn"],
