@@ -16,7 +16,6 @@ class Homepage extends Component {
     const { articles, loading, error } = this.props;
     return (
       <div className="homepage container">
-        <h4>Check out the articles, then vote and comment on your favourite!</h4>
         { error && <Redirect to="/404" /> }
         { loading ? <Loading /> : (
           <div className="homepage-list">
@@ -31,7 +30,7 @@ class Homepage extends Component {
 }
 
 Homepage.propTypes = {
-  articles: PT.object.isRequired,
+  articles: PT.oneOfType([ PT.object, PT.array ]).isRequired,
   loading: PT.bool.isRequired,
   error: PT.any,
   fetchArticles: PT.func.isRequired
