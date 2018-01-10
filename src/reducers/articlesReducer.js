@@ -7,6 +7,8 @@ export const initialState = {
 };
 
 export default (prevState = initialState, action) => {
+  const newState = Object.assign({}, prevState);
+  
   switch (action.type) {
   case types.FETCH_ARTICLES_REQUEST:
     return Object.assign({}, prevState, {
@@ -63,7 +65,6 @@ export default (prevState = initialState, action) => {
       data: {}
     });
   case types.PUT_ARTICLE_VOTE_REQUEST:
-    const newState = Object.assign({}, prevState);
     newState.data = Object.assign({}, prevState.data);
     newState.data.votes = action.payload.votes;
     return newState;
