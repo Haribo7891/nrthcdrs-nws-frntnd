@@ -40,7 +40,7 @@ const HomepageUI = ({ articles }) => (
 );
 
 HomepageUI.propTypes = {
-  articles: PT.object.isRequired
+  articles: PT.any.isRequired
 };
   
 export default HomepageUI;

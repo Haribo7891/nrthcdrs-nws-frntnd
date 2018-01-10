@@ -31,8 +31,8 @@ class ArticlesByTopic extends Component {
             <div className="article-list-list">
               <div className="list-item">
                 { Object.values(articles)
-                  .map((article, i) => (
-                    <div key={ i } className="card-group">
+                  .map((article) => (
+                    <div key={ article._id } className="card-group">
                       <ArticlesByTopicUI 
                         article={ article }
                       />
@@ -48,7 +48,7 @@ class ArticlesByTopic extends Component {
 }
 
 ArticlesByTopic.propTypes = {
-  articles: PT.array.isRequired,
+  articles: PT.oneOfType([ PT.object, PT.array ]).isRequired,
   loading: PT.bool.isRequired,
   error: PT.any,
   fetchArticlesByTopic: PT.func.isRequired

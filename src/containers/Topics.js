@@ -28,7 +28,7 @@ class Topics extends Component {
 }
 
 Topics.propTypes = {
-  topics: PT.array.isRequired,
+  topics: PT.oneOfType([ PT.object, PT.array ]).isRequired,
   loading: PT.bool.isRequired,
   error: PT.any,
   fetchTopics: PT.func.isRequired

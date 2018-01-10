@@ -47,7 +47,7 @@ class User extends Component {
 
 User.propTypes = {
   userData: PT.object.isRequired,
-  articles: PT.array.isRequired,
+  articles: PT.oneOfType([ PT.object, PT.array ]).isRequired,
   loading: PT.bool.isRequired,
   error: PT.any,
   fetchUser: PT.func.isRequired,

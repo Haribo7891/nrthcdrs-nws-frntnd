@@ -44,8 +44,8 @@ class ArticleBody extends Component {
 }
 
 ArticleBody.propTypes = {
-  article: PT.array.isRequired,
-  loading: PT.bool.isRequired,
+  article: PT.oneOfType([ PT.object, PT.array ]).isRequired,
+  loading: PT.bool,
   error: PT.any,
   handleArticleVoteClick: PT.func.isRequired
 };
