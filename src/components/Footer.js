@@ -1,8 +1,8 @@
 import React from 'react';
 
 const Footer = () => (
-  <footer className="navbar footer-color app">
-    <div className="container">
+  <footer className="navbar footer-color">
+    <div className="container justify-content-center">
       <div className="footer-title">
         <h6>Made by Harry Crank as part of a project from <a href="https://northcoders.com/">Northcoders</a> Bootcamp</h6>
       </div>

@@ -36,6 +36,10 @@ body {
   width: 90%;
 }
 
+.navbar-card {
+  margin-top: 0px;
+}
+
 .navbar-color {
   background-color: rgba(236, 255, 154, 0.774);
 }
