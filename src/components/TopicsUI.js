@@ -8,12 +8,12 @@ const TopicsUI = ({ topics }) => (
       <div className="topic-title">
         Filter by topic:
       </div>
-      <NavLink className="nav-link list-inline-item badge badge-pill badge-light" to="/">ALL TOPICS</NavLink>                
+      <NavLink className="nav-link list-inline-item badge badge-pill badge-light wiggle-me" to="/">ALL TOPICS</NavLink>                
       { Object.values(topics)
         .map((topic) => (
           <span key={ topic.slug } className="">
             <span className="nav-item">
-              <NavLink className="nav-link list-inline-item badge badge-pill badge-light" to={ `/topics/${ topic.slug }/articles` }>{ topic.slug.toUpperCase() }</NavLink>                
+              <NavLink className="nav-link list-inline-item badge badge-pill badge-light wiggle-me" to={ `/topics/${ topic.slug }/articles` }>{ topic.slug.toUpperCase() }</NavLink>                
               <span></span>
             </span>
           </span>
