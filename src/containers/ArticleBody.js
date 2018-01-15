@@ -3,26 +3,23 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PT from 'prop-types';
 
-import { putArticleVote } from '../actions';
+import { putArticleVote, fetchArticleById } from '../actions';
 import { Loading, ArticleBodyUI, VoteArticleUI } from '../components';
 
 class ArticleBody extends Component {
 
   state = {
-    votes: this.props.article.votes
+    article: this.props.article
   }
 
   handlePutArticleVote = (event, articleId, vote) => {
     event.preventDefault()
-    const { putArticleVote, article } = this.props;
-    this.setState({
-      votes: article.votes
-    })
-    putArticleVote(articleId, vote);
+    this.props.putArticleVote(articleId, vote);
   }
 
   render () {
-    const { article, loading, error } = this.props;
+    const { article } = this.state;
+    const { loading, error } = this.props;
     return (
       <div className="article-body">
         { error && <Redirect to="/404" /> }
@@ -32,8 +29,7 @@ class ArticleBody extends Component {
               article={ article }
             />
             <VoteArticleUI 
-              articleVotes={ article.votes }
-              articleId={ article._id }
+              article={ article }
               handleArticleVote={ this.handlePutArticleVote }
             />
           </div>
@@ -45,15 +41,23 @@ class ArticleBody extends Component {
 
 ArticleBody.propTypes = {
   article: PT.oneOfType([ PT.object, PT.array ]).isRequired,
-  loading: PT.bool,
-  error: PT.any,
-  handleArticleVoteClick: PT.func.isRequired
+  loading: PT.bool.isRequired,
+  error: PT.any
 };
+
+const mapStateToProps = (state) => ({
+  article: state.articlesReducer.data,
+  loading: state.articlesReducer.loading,
+  error: state.articlesReducer.error
+})
 
 const mapDispatchToProps = (dispatch) => ({
   putArticleVote: (articleId, vote) => {
     dispatch(putArticleVote(articleId, vote));
+  },
+  fetchArticleById: (articleId) => {
+    dispatch(fetchArticleById(articleId));
   }
 });
 
-export default connect(null, mapDispatchToProps)(ArticleBody);
+export default connect(mapStateToProps, mapDispatchToProps)(ArticleBody);
