@@ -5,7 +5,7 @@ import PT from 'prop-types';
 
 import { fetchArticleById, fetchCommentsByArticle } from '../actions';
 import { Loading } from '../components';
-import { ArticleBody, ArticleComments, AddComment } from '../containers';
+import { ArticleBody, ArticleComments } from '../containers';
 
 class ArticlePage extends Component {
   
@@ -23,15 +23,12 @@ class ArticlePage extends Component {
         { loading ? <Loading /> : 
           <div className="card border-secondary">
             <div className="article-page-color">
-              <ArticleBody 
-              />
-              <AddComment 
-                articleId={ article._id }
-              />
+              <ArticleBody />
             </div>        
             <div className="articleCard-text article-page-color">
               <h4>Other user comments:</h4>
               <ArticleComments 
+                articleId={ article._id }
               />
             </div>
           </div>

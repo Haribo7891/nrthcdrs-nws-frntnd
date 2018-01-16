@@ -3,8 +3,8 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PT from 'prop-types';
 
-import { putCommentVote, fetchCommentsByArticle, deleteComment } from '../actions';
-import { Loading, ArticleCommentsUI, VoteCommentUI } from '../components';
+import { putCommentVote, fetchCommentsByArticle, deleteComment, postComment } from '../actions';
+import { Loading, ArticleCommentsUI, VoteCommentUI, AddCommentUI } from '../components';
 
 class ArticleComments extends Component {
 
@@ -16,33 +16,55 @@ class ArticleComments extends Component {
   }
 
   handlePutCommentVote = (event, commentId, vote) => {
-    event.preventDefault()
+    event.preventDefault();
     const { putCommentVote } = this.props;
     putCommentVote(commentId, vote);
   }
 
   handleDeleteComment = (event, commentId, articleId) => {
-    event.preventDefault()
+    event.preventDefault();
     const { commentList } = this.state;
     const { deleteComment, fetchCommentsByArticle } = this.props;
-    const newComments = commentList.filter((deleted) => deleted._id !== commentId)
+    const updatedComments = commentList.filter((deleted) => deleted._id !== commentId)
     this.setState({
-      commentList: newComments
+      commentList: updatedComments
     })
     deleteComment(commentId);
     fetchCommentsByArticle(articleId);
   }
+
+  handlePostComment = (event, articleId, comment) => {
+    event.preventDefault();
+    const { commentList } = this.state;
+    const { postComment } = this.props;
+    const newComment = [{
+      body: comment,
+      belongs_to: articleId,
+      created_by: 'northcoder',
+      votes: 0,
+      created_at: Date.now()
+    }];
+    this.setState({
+      commentList: newComment.concat(commentList)
+    })
+    postComment(articleId, comment);
+  }
   
   render () {
     const { commentList } = this.state;
-    const { comments, loading, error } = this.props;
+    const { articleId, loading, error } = this.props;
     return (
       <div className="article-comments">
         { error && <Redirect to="/404" /> }
         { loading ? <Loading /> :
           <div className="articleCommentsUI">
-            { Object.values(commentList).map((comment) => (
-              <div key={ comment._id } className="comment card border-success">
+            <AddCommentUI 
+              articleId={ articleId }
+              handlePostComment={ this.handlePostComment }
+            />
+            <h4>Other user comments...</h4>
+            { Object.values(commentList).map((comment, i) => (
+              <div key={ i } className="comment card border-success">
                 <ArticleCommentsUI 
                   comment={ comment }
                   />
@@ -64,9 +86,10 @@ ArticleComments.propTypes = {
   comments: PT.oneOfType([ PT.object, PT.array ]).isRequired,
   loading: PT.bool.isRequired,
   error: PT.any,
-  handlePutCommentVote: PT.func,
-  handleDeleteComment: PT.func,
-  fetchCommentsByArticle: PT.func
+  fetchCommentsByArticle: PT.func.isRequired,
+  putCommentVote: PT.func.isRequired,
+  deleteComment: PT.func.isRequired,
+  postComment: PT.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
@@ -84,6 +107,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   deleteComment: (commentId) => {
     dispatch(deleteComment(commentId));
+  },
+  postComment: (articleId, comment) => {
+    dispatch(postComment(articleId, comment));
   }
 });
 
