@@ -11,7 +11,7 @@ const TopicsUI = ({ topics }) => (
       <NavLink className="nav-link list-inline-item badge badge-pill badge-light wiggle-me" to="/">ALL TOPICS</NavLink>                
       { Object.values(topics)
         .map((topic) => (
-          <span key={ topic.slug } className="">
+          <span key={ topic.slug }>
             <span className="nav-item">
               <NavLink className="nav-link list-inline-item badge badge-pill badge-light wiggle-me" to={ `/topics/${ topic.slug }/articles` }>{ topic.slug.toUpperCase() }</NavLink>                
               <span></span>
@@ -23,7 +23,7 @@ const TopicsUI = ({ topics }) => (
 );
 
 TopicsUI.propTypes = {
-  topics: PT.any.isRequired
+  topics: PT.oneOfType([ PT.object, PT.array ]).isRequired
 };
 
 export default TopicsUI;

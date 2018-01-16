@@ -31,8 +31,8 @@ class ArticlesByTopic extends Component {
             <div className="article-list-list">
               <div className="list-item">
                 { Object.values(articles)
-                  .map((article) => (
-                    <div key={ article._id } className="card-group">
+                  .map((article, i) => (
+                    <div key={ i } className="card-group">
                       <ArticlesByTopicUI 
                         article={ article }
                       />

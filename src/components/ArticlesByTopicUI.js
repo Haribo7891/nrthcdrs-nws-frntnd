@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PT from 'prop-types';
 
 const ArticlesByTopicUI = ({ article: { _id, votes, created_by, title } }) => (
   <div className="card text-center border-danger">
@@ -28,9 +27,5 @@ const ArticlesByTopicUI = ({ article: { _id, votes, created_by, title } }) => (
     </div>
   </div>
 );
-
-ArticlesByTopicUI.propTypes = {
-  article: PT.object.isRequired
-};
   
 export default ArticlesByTopicUI;

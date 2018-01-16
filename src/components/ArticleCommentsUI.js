@@ -12,8 +12,8 @@ const ArticleCommentsUI = ({ comment: { body, created_by, created_at } }) => (
   </div>
 );
 
-// ArticleCommentsUI.propTypes = {
-//   comment: PT.object.isRequired
-// };
+ArticleCommentsUI.propTypes = {
+  comment: PT.oneOfType([ PT.object, PT.array ]).isRequired
+};
   
 export default ArticleCommentsUI;
