@@ -3,9 +3,12 @@ import PT from 'prop-types';
 
 class VoteCommentUI extends Component {
   
-    state = {
+  constructor(props){
+    super(props)
+    this.state = {
       votes: this.props.comment.votes,
     }
+  }
 
   handleCommentVoteUpClick = (event) => {
     event.preventDefault()
@@ -25,6 +28,12 @@ class VoteCommentUI extends Component {
     handleCommentVote(event, comment._id, 'DOWN')
   }
 
+  handleDeleteCommentClick = (event) => {
+    event.preventDefault()
+    const { handleDeleteComment, comment } = this.props;
+    handleDeleteComment(event, comment._id, comment.belongs_to)
+  }
+
   render () {
     const { handleDeleteComment, comment } = this.props;
     return (
@@ -36,7 +45,7 @@ class VoteCommentUI extends Component {
         <span className="badge">
           <a onClick={ this.handleCommentVoteDownClick }><img src="/img/thumbs-down.svg" width="20px" alt="thumbs-down"/></a>
         </span>
-        { (comment.created_by === 'northcoder') && <a onClick={ handleDeleteComment(comment._id) }><img src="/img/cup.svg" width="20px" alt="delete"/></a> }        
+        { (comment.created_by === 'northcoder') && <a onClick={ this.handleDeleteCommentClick }><img src="/img/cup.svg" width="20px" alt="delete"/></a> }        
       </div>
     );
   }
@@ -44,8 +53,7 @@ class VoteCommentUI extends Component {
 
 VoteCommentUI.propTypes = {
   handleCommentVote: PT.func.isRequired,
-  // handleDeleteComment: PT.func.isRequired,
-  // deleteNorthcoder: PT.bool.isRequired
+  handleDeleteComment: PT.func.isRequired,
 };
 
 export default VoteCommentUI;
