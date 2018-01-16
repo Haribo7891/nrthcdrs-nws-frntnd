@@ -5,6 +5,7 @@
   "description": "Northcoders News: A REDDIT style project",
   "main": "src/index.js",
   "author": "Harry Crank",
+  "homepage": "https://github.com/Haribo7891/nrthcdrs-nws-frntnd",
   "license": "ISC",
   "keywords": [
     "northcoders",

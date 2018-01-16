@@ -3,12 +3,12 @@ import PT from 'prop-types';
 
 class AddCommentUI extends Component {
 
-  constructor(props){
-    super(props)
+  constructor (props) {
+    super(props);
     this.state = {
       comment: ''
     };
-  };
+  }
 
   handleCommentChange = (event) => {
     event.preventDefault();
@@ -26,7 +26,7 @@ class AddCommentUI extends Component {
       this.setState({
         comment: ''
       });
-      this.refs.addNewComment.value = ''
+      this.refs.addNewComment.value = '';
     }
   }
 

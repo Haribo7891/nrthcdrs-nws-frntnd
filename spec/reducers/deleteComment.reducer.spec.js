@@ -30,7 +30,7 @@ describe('Reducer: deleteComment', () => {
   });
   it('Handles DELETE_COMMENT_SUCCESS correctly', () => {
     const prevState = deleteCommentReducer(undefined, deleteCommentRequest(commentId));
-    const data = [ 1, 2, 3 ];
+    const data = [];
     const action = deleteCommentSuccess(data);
     const newState = deleteCommentReducer(prevState, action);
     expect(newState.loading).to.be.false;

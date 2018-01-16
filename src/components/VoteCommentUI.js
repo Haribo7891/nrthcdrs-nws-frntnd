@@ -3,12 +3,12 @@ import PT from 'prop-types';
 
 class VoteCommentUI extends Component {
   
-  constructor(props){
-    super(props)
+  constructor (props) {
+    super(props);
     this.state = {
       votes: this.props.comment.votes,
     };
-  };
+  }
 
   handleCommentVoteUpClick = (event) => {
     event.preventDefault();
@@ -49,8 +49,8 @@ class VoteCommentUI extends Component {
         { (created_by === 'northcoder') && <a onClick={ this.handleDeleteCommentClick }><img src="/img/cup.svg" width="20px" alt="delete"/></a> }        
       </div>
     );
-  };
-};
+  }
+}
 
 VoteCommentUI.propTypes = {
   comment: PT.oneOfType([ PT.object, PT.array ]).isRequired,

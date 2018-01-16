@@ -27,9 +27,9 @@ describe('Reducer: putArticleVote', () => {
   it('Handles PUT_ARTICLE_VOTE_REQUEST correctly', () => {
     const action = putArticleVoteRequest(articleId, voteUp);
     const newState = putArticleVoteReducer(undefined, action);
-    expect(newState.loading).to.be.true;
+    expect(newState.loading).to.be.false;
     expect(newState.error).to.be.null;
-    expect(newState.data).to.eql({});
+    expect(newState.data).to.eql({ votes: undefined });
   });
   it('Handles PUT_ARTICLE_VOTE_SUCCESS correctly', () => {
     const prevState = putArticleVoteReducer(undefined, putArticleVoteRequest(articleId, voteUp));

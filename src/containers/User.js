@@ -4,21 +4,19 @@ import { connect } from 'react-redux';
 import PT from 'prop-types';
 
 import { fetchUser, fetchArticles } from '../actions';
-import { UserArticlesUI, UserBodyUI, Loading } from '../components';
+import { Loading, UserArticlesUI, UserBodyUI } from '../components';
 
 class User extends Component {
   
   componentDidMount () {
-    const username = this.props.match.params.username;    
-    this.props.fetchUser(username);
-    this.props.fetchArticles();
+    const { fetchArticles, fetchUser, match: { params: { username } } } = this.props;  
+    fetchUser(username);
+    fetchArticles();
   }
 
   render () {
-    const { articles, userData, loading, error } = this.props;
-    const userArticles = Object.values(articles).filter((article) => {
-      return article.created_by === this.props.match.params.username;
-    });
+    const { articles, userData, loading, error, match: { params: { username } } } = this.props;
+    const userArticles = Object.values(articles).filter((article) => article.created_by === username );
     return (
       <div className="user container">
         <h1>Author Information</h1>

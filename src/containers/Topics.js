@@ -9,7 +9,8 @@ import { Loading, TopicsUI } from '../components';
 class Topics extends Component {
   
   componentDidMount () {
-    this.props.fetchTopics();
+    const { fetchTopics } = this.props;
+    fetchTopics();
   }
 
   render () {

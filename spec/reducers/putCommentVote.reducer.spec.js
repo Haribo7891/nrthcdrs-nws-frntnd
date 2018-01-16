@@ -27,9 +27,9 @@ describe('Reducer: putCommentVote', () => {
   it('Handles PUT_COMMENT_VOTE_REQUEST correctly', () => {
     const action = putCommentVoteRequest(commentId, voteUp);
     const newState = putCommentVoteReducer(undefined, action);
-    expect(newState.loading).to.be.true;
+    expect(newState.loading).to.be.false;
     expect(newState.error).to.be.null;
-    expect(newState.data).to.eql({});
+    expect(newState.data).to.eql({ undefined });
   });
   it('Handles PUT_COMMENT_VOTE_SUCCESS correctly', () => {
     const prevState = putCommentVoteReducer(undefined, putCommentVoteRequest(commentId, voteUp));
@@ -38,7 +38,7 @@ describe('Reducer: putCommentVote', () => {
     const newState = putCommentVoteReducer(prevState, action);
     expect(newState.loading).to.be.false;
     expect(newState.error).to.be.null;
-    expect(newState.data).to.eql({ undefined: data });
+    expect(newState.data).to.eql([]);
   });
   it('Handles PUT_COMMENT_VOTE_FAILURE correctly', () => {
     const prevState = putCommentVoteReducer(undefined, putCommentVoteRequest());

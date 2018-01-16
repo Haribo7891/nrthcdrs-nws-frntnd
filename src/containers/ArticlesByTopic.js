@@ -9,15 +9,15 @@ import { Loading, ArticlesByTopicUI } from '../components';
 class ArticlesByTopic extends Component {
   
   componentDidMount () {
-    const topic = this.props.match.params.topic;
-    this.props.fetchArticlesByTopic(topic);
+    const { fetchArticlesByTopic, match: { params: { topic } } } = this.props;
+    fetchArticlesByTopic(topic);
   }
 
   componentWillReceiveProps (nextProps) {
-    const oldTopic = this.props.match.params.topic;
-    const newTopic = nextProps.match.params.topic;
+    const { fetchArticlesByTopic, match: { params: { topic: oldTopic } } } = this.props;
+    const { match: { params: { topic: newTopic } } } = nextProps;
     if (newTopic !== oldTopic) {
-      this.props.fetchArticlesByTopic(newTopic);
+      fetchArticlesByTopic(newTopic);
     }
   }
 

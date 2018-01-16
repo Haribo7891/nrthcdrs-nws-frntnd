@@ -27,7 +27,7 @@ describe('Reducer: postComment', () => {
   it('Handles POST_COMMENT_REQUEST correctly', () => {
     const action = postCommentRequest(articleId, comment);
     const newState = postCommentReducer(undefined, action);
-    expect(newState.loading).to.be.true;
+    expect(newState.loading).to.be.false;
     expect(newState.error).to.be.null;
     expect(newState.data).to.eql({});
   });
@@ -38,7 +38,7 @@ describe('Reducer: postComment', () => {
     const newState = postCommentReducer(prevState, action);
     expect(newState.loading).to.be.false;
     expect(newState.error).to.be.null;
-    expect(newState.data).to.eql({ undefined: data });
+    expect(newState.data).to.eql(data);
   });
   it('Handles POST_COMMENT_FAILURE correctly', () => {
     const prevState = postCommentReducer(undefined, postCommentRequest());

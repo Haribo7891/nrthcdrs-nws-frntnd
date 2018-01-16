@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Navbar, Footer, SwitchRoutes } from '../components';
+import { Navbar, SwitchRoutes, Footer } from '../components';
 
 const App = () => (
   <div className="app container-fluid">

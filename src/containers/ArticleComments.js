@@ -8,11 +8,11 @@ import { Loading, ArticleCommentsUI, VoteCommentUI, AddCommentUI } from '../comp
 
 class ArticleComments extends Component {
 
-  constructor(props){
-    super(props)
+  constructor (props) {
+    super(props);
     this.state = {
       commentList: this.props.comments
-    }
+    };
   }
 
   handlePutCommentVote = (event, commentId, vote) => {
@@ -25,10 +25,10 @@ class ArticleComments extends Component {
     event.preventDefault();
     const { commentList } = this.state;
     const { deleteComment, fetchCommentsByArticle } = this.props;
-    const updatedComments = commentList.filter((deleted) => deleted._id !== commentId)
+    const updatedComments = commentList.filter((deleted) => deleted._id !== commentId);
     this.setState({
       commentList: updatedComments
-    })
+    });
     deleteComment(commentId);
     fetchCommentsByArticle(articleId);
   }
@@ -45,8 +45,8 @@ class ArticleComments extends Component {
       created_at: Date.now()
     }];
     this.setState({
-      commentList: newComment.concat(commentList)
-    })
+      commentList: commentList.concat(newComment)
+    });
     postComment(articleId, comment);
   }
   
@@ -67,7 +67,7 @@ class ArticleComments extends Component {
               <div key={ i } className="comment card border-success">
                 <ArticleCommentsUI 
                   comment={ comment }
-                  />
+                />
                 <VoteCommentUI 
                   comment={ comment }
                   handleCommentVote={ this.handlePutCommentVote }
@@ -93,9 +93,9 @@ ArticleComments.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-    comments: state.commentsReducer.data,
-    loading: state.commentsReducer.loading,
-    error: state.commentsReducer.error
+  comments: state.commentsReducer.data,
+  loading: state.commentsReducer.loading,
+  error: state.commentsReducer.error
 });
 
 const mapDispatchToProps = (dispatch) => ({

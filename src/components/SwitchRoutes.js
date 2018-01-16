@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import { NoMatch } from '../components';
-import { User, Homepage, ArticlesByTopic, ArticlePage } from '../containers';
+import { Homepage, ArticlesByTopic, ArticlePage, User } from '../containers';
 
 const SwitchRoutes = () => (
   <Switch>

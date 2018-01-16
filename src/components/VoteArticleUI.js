@@ -8,23 +8,23 @@ class VoteArticleUI extends Component {
   }
 
   handleArticleVoteUpClick = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     const { votes } = this.state;
     const { handleArticleVote, article: { _id: articleId } } = this.props;
     this.setState({
       votes: votes + 1
-    })
-    handleArticleVote(event, articleId, 'UP')
+    });
+    handleArticleVote(event, articleId, 'UP');
   }
   
   handleArticleVoteDownClick = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     const { votes } = this.state;
     const { handleArticleVote, article: { _id: articleId } } = this.props;
     this.setState({
       votes: votes - 1
-    })
-    handleArticleVote(event, articleId, 'DOWN')
+    });
+    handleArticleVote(event, articleId, 'DOWN');
   }
 
   render () {

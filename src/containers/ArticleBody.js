@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PT from 'prop-types';
 
-import { putArticleVote, fetchArticleById } from '../actions';
+import { putArticleVote } from '../actions';
 import { Loading, ArticleBodyUI, VoteArticleUI } from '../components';
 
 class ArticleBody extends Component {
@@ -13,8 +13,9 @@ class ArticleBody extends Component {
   }
 
   handlePutArticleVote = (event, articleId, vote) => {
-    event.preventDefault()
-    this.props.putArticleVote(articleId, vote);
+    event.preventDefault();
+    const { putArticleVote } = this.props;
+    putArticleVote(articleId, vote);
   }
 
   render () {
@@ -49,14 +50,11 @@ const mapStateToProps = (state) => ({
   article: state.articlesReducer.data,
   loading: state.articlesReducer.loading,
   error: state.articlesReducer.error
-})
+});
 
 const mapDispatchToProps = (dispatch) => ({
   putArticleVote: (articleId, vote) => {
     dispatch(putArticleVote(articleId, vote));
-  },
-  fetchArticleById: (articleId) => {
-    dispatch(fetchArticleById(articleId));
   }
 });
 

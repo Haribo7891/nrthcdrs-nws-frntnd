@@ -9,7 +9,8 @@ import { Loading, HomepageUI } from '../components';
 class Homepage extends Component {
   
   componentDidMount () {
-    this.props.fetchArticles();
+    const { fetchArticles } = this.props;
+    fetchArticles();
   }
 
   render () {

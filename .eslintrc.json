@@ -6,10 +6,12 @@
       "mocha": true
     },
     "extends": "eslint:recommended",
+    "parser": "babel-eslint",
     "parserOptions": {
       "ecmaFeatures": {
         "experimentalObjectRestSpread": true,
-        "jsx": true
+        "jsx": true,
+        "modules": true
       },
       "sourceType": "module"
     },
@@ -18,10 +20,10 @@
     ],
     "rules": {
       "no-case-declarations": ["off"],
-      "no-unused-vars": ["warn"],
-      "no-undef": ["warn"],
-      "no-console": ["warn"],
-      "no-useless-constructor": ["warn"],
+      "no-unused-vars": ["off"],
+      "no-undef": ["error"],
+      "no-console": ["error"],
+      "no-useless-constructor": ["error"],
       "no-var": ["error"],
       "no-multi-spaces": ["error"],
       "no-extra-semi": ["error"],

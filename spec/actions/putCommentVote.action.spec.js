@@ -13,7 +13,6 @@ import {
   commentId,
   voteUp,
   voteDown,
-  commentBody,
   incorrectCommentId,
   commentVoteUp,
   commentVoteDown
