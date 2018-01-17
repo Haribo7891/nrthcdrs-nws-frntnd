@@ -63,18 +63,19 @@ class ArticleComments extends Component {
               handlePostComment={ this.handlePostComment }
             />
             <h4>Other user comments...</h4>
-            { Object.values(commentList).map((comment, i) => (
-              <div key={ i } className="comment card border-success">
-                <ArticleCommentsUI 
-                  comment={ comment }
-                />
-                <VoteCommentUI 
-                  comment={ comment }
-                  handleCommentVote={ this.handlePutCommentVote }
-                  handleDeleteComment={ this.handleDeleteComment }
-                />
-              </div>
-            )) }
+            { Object.values(commentList)
+              .map((comment, i) => (
+                <div key={ i } className="comment card border-success">
+                  <ArticleCommentsUI 
+                    comment={ comment }
+                  />
+                  <VoteCommentUI 
+                    comment={ comment }
+                    handleCommentVote={ this.handlePutCommentVote }
+                    handleDeleteComment={ this.handleDeleteComment }
+                  />
+                </div>
+              )) }
           </div>
         }
       </div>

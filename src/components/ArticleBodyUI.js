@@ -2,24 +2,24 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PT from 'prop-types';
 
-const ArticleBodyUI = ({ article: { title, created_by, belongs_to, body } }) => (
+const ArticleBodyUI = ({ article: { title, created_by: username, belongs_to: topic, body } }) => (
   <div className="article-body">
     <div className="card border-warning homepage-article-color">
       <div className="card-body">
         <blockquote className="card-blockquote">
           <div className="card-title">
-            <h2>{ title }</h2>
+            <h3>{ title }</h3>
           </div>
           <div className="footer">
             <footer className="card-footer">
               <ul className="list-inline">
                 <span className="article-info">
-                  <li className="card-link list-inline-item">
-                    Author: <Link to={ `/user/${ created_by }` }>{ created_by }</Link>
-                  </li>
-                  <li className="card-link list-inline-item">
-                    Topic: <Link to={ `/topics/${ belongs_to }/articles` }>{ belongs_to }</Link>
-                  </li>
+                  <span className="card-link">
+                    <span><Link to={ `/topics/${ topic }/articles` }><img className="wiggle-me" src={ `/img/${ topic }.png` } width="20px" alt={ `${ topic }` }/></Link></span>
+                  </span>
+                  <span className="card-link">
+                    <span><img src="/img/user.png" width="20px" alt="user"/> <Link to={ `/user/${ username }` }>{ username }</Link></span>
+                  </span>
                 </span>
               </ul>
             </footer>

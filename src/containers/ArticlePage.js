@@ -16,7 +16,7 @@ class ArticlePage extends Component {
   }
 
   render () {
-    const { article, loading, error } = this.props;
+    const { article: { _id: articleId }, loading, error } = this.props;
     return (
       <div className="container">
         { error && <Redirect to="/404" /> }
@@ -26,9 +26,8 @@ class ArticlePage extends Component {
               <ArticleBody />
             </div>        
             <div className="articleCard-text article-page-color">
-              <h4>Other user comments:</h4>
               <ArticleComments 
-                articleId={ article._id }
+                articleId={ articleId }
               />
             </div>
           </div>

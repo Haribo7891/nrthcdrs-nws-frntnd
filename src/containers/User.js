@@ -27,14 +27,13 @@ class User extends Component {
               userData={ userData }
             />
             <div className="articleCard-text">
-              { userArticles
-                .map((article, i) => (
-                  <div key={ i } className="card border-success">
-                    <UserArticlesUI 
-                      article={ article }
-                    />
-                  </div>
-                )) }
+              { userArticles.map((article, i) => (
+                <div key={ i } className="card border-success">
+                  <UserArticlesUI 
+                    article={ article }
+                  />
+                </div>
+              )) }
             </div>
           </div>
         ) }

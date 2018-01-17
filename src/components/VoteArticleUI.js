@@ -32,11 +32,11 @@ class VoteArticleUI extends Component {
     return (
       <div className="buttonsContainer">
         <span className="badge">
-          <a onClick={ this.handleArticleVoteUpClick }><img src="/img/thumbs-up.svg" width="20px" alt="thumbs-up"/></a>
+          <a onClick={ this.handleArticleVoteUpClick }><img src="/img/thumbs-up.png" width="20px" alt="thumbs-up"/></a>
         </span>
         <span>{ votes }</span>
         <span className="badge">
-          <a onClick={ this.handleArticleVoteDownClick }><img src="/img/thumbs-down.svg" width="20px" alt="thumbs-down"/></a>
+          <a onClick={ this.handleArticleVoteDownClick }><img src="/img/thumbs-down.png" width="20px" alt="thumbs-down"/></a>
         </span>
       </div>
     );

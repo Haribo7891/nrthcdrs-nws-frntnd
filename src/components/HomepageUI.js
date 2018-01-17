@@ -14,21 +14,17 @@ const HomepageUI = ({ articles }) => (
                   <h5><Link to={ `/articles/${ article._id }` }>{ article.title }</Link></h5>
                   <p></p>
                 </div>
-                <div className="footer">
+                <div className="justify-content-between">
                   <footer className="card-footer">
-                    <ul className="list-inline">
-                      <span>
-                        <li className="card-link list-inline-item">
-                          Votes: { article.votes }
-                        </li>
-                        <li className="card-link list-inline-item">
-                          Topic: <Link to={ `/topics/${ article.belongs_to }/articles` }>{ article.belongs_to }</Link>
-                        </li>
-                        <li className="card-link list-inline-item">
-                          Author: <Link to={ `/user/${ article.created_by }` }>{ article.created_by }</Link>
-                        </li>
-                      </span>
-                    </ul>
+                    <span className="card-link">
+                      <span><img src="/img/smile-o.png" width="20px" alt="smile-o"/> { article.votes }</span>
+                    </span>
+                    <span className="card-link">
+                      <span><Link to={ `/topics/${ article.belongs_to }/articles` }><img className="wiggle-me" src={ `/img/${ article.belongs_to }.png` } width="20px" alt={ `${ article.belongs_to }` }/></Link></span>
+                    </span>
+                    <span className="card-link">
+                      <span><img src="/img/user.png" width="20px" alt="user"/> <Link to={ `/user/${ article.created_by }` }>{ article.created_by }</Link></span>
+                    </span>
                   </footer>
                 </div>
               </blockquote>
