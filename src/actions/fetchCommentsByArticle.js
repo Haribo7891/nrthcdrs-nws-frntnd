@@ -28,9 +28,6 @@ export default (articleId) => (dispatch) => {
     .then((sortedComments) => {
       dispatch(fetchCommentsByArticleSuccess(sortedComments));
     })
-    // .then((res) => {
-    //   dispatch(fetchCommentsByArticleSuccess(res.data.comments));
-    // })
     .catch((error) => {
       dispatch(fetchCommentsByArticleFailure(error.message));
     });
