@@ -18,7 +18,7 @@ class ArticlePage extends Component {
   render () {
     const { article: { _id: articleId }, loading, error } = this.props;
     return (
-      <div className="container">
+      <div className="container-fluid">
         { error && <Redirect to="/404" /> }
         { loading ? <Loading /> : 
           <div className="card border-secondary">

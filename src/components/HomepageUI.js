@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PT from 'prop-types';
 
 const HomepageUI = ({ articles }) => (
-  <div className="list-item">
+  <div className="homepage list-item">
     { Object.values(articles)
       .map((article, i) => (
         <div key={ i } className="card-group">

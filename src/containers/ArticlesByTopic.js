@@ -24,7 +24,7 @@ class ArticlesByTopic extends Component {
   render () {
     const { articles, loading, error } = this.props;
     return (
-      <div className="article-list container">
+      <div className="article-list">
         { error && <Redirect to="/404" /> }
         { loading ? <Loading /> : (
           <div className="article-list-title">

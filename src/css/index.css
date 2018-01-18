@@ -15,7 +15,17 @@ body {
   background-color: rgba(245, 184, 184, 0.774);
 }
 .card {
-  margin: 1em;
+  margin: 0.3em;
+}
+
+.card-footer {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.card-body {
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .card-blockquote {
@@ -31,22 +41,16 @@ body {
 }
 
 .article-info {
-  margin: 1.5em;
-  flex-flow: row wrap;
-  width: 100%;
-  padding: 1em;
+  margin: 0.3em;
 }
 
 .comment-input {
   margin: 10px;
-  width: 90%;
+  width: 75%;
 }
 
 .navbar-card {
   margin-top: 0px;
-}
-
-.navbar-color {
   background-color: rgba(236, 255, 154, 0.774);
 }
 
@@ -66,16 +70,8 @@ body {
   background-color: rgba(154, 206, 255, 0.774);
 }
 
-.article-page-color, .actionButton, .img-button {
-  background-color: rgba(154, 201, 255, 0.774);
-}
-
 .user-article-card-color {
   background-color: rgba(255, 211, 154, 0.774);
-}
-
-.comment-color, .comment-vote-color {
-  background-color: rgba(146, 230, 245, 0.774);
 }
 
 .footer-items {

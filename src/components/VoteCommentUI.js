@@ -37,7 +37,7 @@ class VoteCommentUI extends Component {
     const { comment: { created_by: username } } = this.props;
     const { votes } = this.state;
     return (
-      <div className="buttonsContainer comment-color">
+      <div className="buttons-container comment-vote-color">
         <span className="badge">
           <a onClick={ this.handleCommentVoteUpClick }><img src="/img/thumbs-up.png" width="20px" alt="thumbs-up"/></a>
         </span>

@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import PT from 'prop-types';
 
 const ArticleCommentsUI = ({ comment: { body, created_by: username, created_at } }) => (
-  <div className="article-card container comment-color">
-    <div className="comment-text">
-      <p className="comment-body">{ body }</p>
-      <p><img src="/img/user.png" width="20px" alt="user"/><Link className="comment-author" to={ `/user/${ username }` }>{ username }</Link></p>
-      <p><span className="date"><img src="/img/calendar.png" width="20px" alt="calendar"/> { new Date(created_at).toDateString() }</span></p>
+  <div className="article-comment-card container">
+    <div className="article-comment-text">
+      <p className="article-comment-body text-justify">"{ body }"</p>
+      <p className="article-comment-author small">By <Link to={ `/user/${ username }` }><img src="/img/user.png" width="20px" alt="user"/>{ username }</Link></p>
+      <p><span className="article-comment-date small"><img src="/img/calendar.png" width="20px" alt="calendar"/> { new Date(created_at).toDateString() }</span></p>
     </div>
   </div>
 );

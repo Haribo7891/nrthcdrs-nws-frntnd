@@ -57,7 +57,7 @@ class ArticleComments extends Component {
       <div className="article-comments">
         { error && <Redirect to="/404" /> }
         { loading ? <Loading /> :
-          <div className="articleCommentsUI">
+          <div className="article-comments">
             <AddCommentUI 
               articleId={ articleId }
               handlePostComment={ this.handlePostComment }
@@ -65,7 +65,7 @@ class ArticleComments extends Component {
             <h4>Other user comments...</h4>
             { Object.values(commentList)
               .map((comment, i) => (
-                <div key={ i } className="comment card border-success">
+                <div key={ i } className="card border-success">
                   <ArticleCommentsUI 
                     comment={ comment }
                   />

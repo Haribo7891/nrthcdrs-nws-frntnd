@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ArticlesByTopicUI = ({ article: { _id: articleId, votes, created_by: username, title } }) => (
-  <div className="card text-center border-danger">
+  <div className="articles-by-topic card border-danger">
     <div className="article-list-color card-body">
       <blockquote className="card-blockquote">
         <div className="card-title">

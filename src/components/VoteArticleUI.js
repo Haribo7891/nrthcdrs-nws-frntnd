@@ -30,7 +30,7 @@ class VoteArticleUI extends Component {
   render () {
     const { votes } = this.state;
     return (
-      <div className="buttonsContainer">
+      <div className="buttons-container">
         <span className="badge">
           <a onClick={ this.handleArticleVoteUpClick }><img src="/img/thumbs-up.png" width="20px" alt="thumbs-up"/></a>
         </span>

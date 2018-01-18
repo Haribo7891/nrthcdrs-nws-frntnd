@@ -16,7 +16,7 @@ class Homepage extends Component {
   render () {
     const { articles, loading, error } = this.props;
     return (
-      <div className="homepage container">
+      <div className="homepage">
         { error && <Redirect to="/404" /> }
         { loading ? <Loading /> : (
           <div className="homepage-list">

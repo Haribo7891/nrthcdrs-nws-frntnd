@@ -18,7 +18,7 @@ class User extends Component {
     const { articles, userData, loading, error, match: { params: { username } } } = this.props;
     const userArticles = Object.values(articles).filter((article) => article.created_by === username );
     return (
-      <div className="user container">
+      <div className="user">
         <h1>Author Information</h1>
         { error && <Redirect to="/404" /> }
         { loading ? <Loading /> : (
