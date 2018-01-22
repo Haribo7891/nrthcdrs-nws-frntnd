@@ -14,13 +14,6 @@
   ],
   "dependencies": {
     "axios": "^0.17.1",
-    "babel": "^6.23.0",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-register": "^6.26.0",
     "bootstrap": "^3.3.7",
     "bootswatch": "^4.0.0-beta.2",
     "css-loader": "^0.28.7",
@@ -38,17 +31,14 @@
     "redux-thunk": "^2.2.0",
     "style-loader": "^0.19.1",
     "url-loader": "^0.6.2",
-    "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.9.7"
+    "webpack": "^3.10.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "pretest": "npm run lint",
     "lint": "eslint ./",
     "lint:fix": "npm run lint -- --fix",
-    "dev": "webpack-dev-server",
-    "watch": "webpack --watch",
-    "build": "webpack -p",
+    "build": "react-scripts build",
     "test": "mocha --require babel-register ./spec/*",
     "eject": "react-scripts eject"
   },
