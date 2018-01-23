@@ -16,7 +16,7 @@ const UserBodyUI = ({ userData }) => {
         <h5 className="card-subtitle text-muted">Username: { currentUserUsername }</h5>
       </div>
       <div className="author-image">
-        <img className="avatar" src={ currentUserAvatar } height="150px" alt="user avatar"/>
+        <img className="avatar wiggle-me" src={ currentUserAvatar } height="150px" alt="user avatar"/>
       </div>
     </div>
   );
