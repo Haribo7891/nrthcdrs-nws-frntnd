@@ -38,11 +38,11 @@ class VoteCommentUI extends Component {
     const { votes } = this.state;
     return (
       <div className="buttons-container comment-vote-color">
-        <span className="badge">
+        <span className="badge wiggle-me">
           <a onClick={ this.handleCommentVoteUpClick }><img src="/img/thumbs-up.png" width="20px" alt="thumbs-up"/></a>
         </span>
         <span>{ votes }</span>
-        <span className="badge">
+        <span className="badge wiggle-me">
           <a onClick={ this.handleCommentVoteDownClick }><img src="/img/thumbs-down.png" width="20px" alt="thumbs-down"/></a>
         </span>
         { (username === 'northcoder') && <a onClick={ this.handleDeleteCommentClick }><img src="/img/trash.png" width="20px" alt="delete"/></a> }        

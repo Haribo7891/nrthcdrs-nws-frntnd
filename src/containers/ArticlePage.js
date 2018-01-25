@@ -61,7 +61,7 @@ class ArticlePage extends Component {
               />
               <h4>Other user comments...</h4>
               { Object.values(comments).map((comment, i) => (
-                <div key={ i } className="card border-success">
+                <div key={ i } className="card border-success comment-color">
                   <ArticleCommentsUI 
                     comment={ comment }
                   />

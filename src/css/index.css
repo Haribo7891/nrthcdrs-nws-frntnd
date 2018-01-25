@@ -1,14 +1,4 @@
-/* body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
-
-p {
-  border: black 1px solid;
-} */
-
-.article {
+.article, .user, .homepage-list, .article-list {
   width: 36em;
   margin: 0 auto;
   max-width: 100%;
@@ -29,7 +19,7 @@ p {
 		
 .app {
   text-align: center;
-  background-color: rgba(245, 184, 184, 0.774);
+  background: radial-gradient( rgba(255,0,0,0),  rgba(245, 184, 184, 0.774));
 }
 .card {
   margin: 0.3em;
@@ -53,8 +43,8 @@ p {
   margin-bottom: 0px;
 }
 
-.card-group {
-  margin-bottom: 15px;
+.footer-margin {
+  margin-top: 15px;
 }
 
 .article-info {
@@ -68,27 +58,30 @@ p {
 
 .navbar-card {
   margin-top: 0px;
-  background-color: rgba(236, 255, 154, 0.774);
 }
 
 .footer-color {
-  background-color: rgba(90, 181, 255, 0.774);
+  background: radial-gradient( rgba(255,0,0,0),  rgba(248, 134, 182, 0.774));  
 }
 
-.article-page-color, .actionButton, .img-button {
-  background-color: rgba(154, 201, 255, 0.774);
+.article-page-color {
+  background: radial-gradient( rgba(255,0,0,0),  rgba(154, 201, 255, 0.774));  
 }
 
 .homepage-article-color {
-  background-color: rgba(154, 255, 205, 0.774);
+  background: radial-gradient( rgba(255,0,0,0), rgba(154, 255, 205, 0.774));
 }
 
 .article-list-color {
-  background-color: rgba(154, 206, 255, 0.774);
+  background: radial-gradient( rgba(255,0,0,0), rgba(169, 154, 255, 0.774));
 }
 
 .user-article-card-color {
-  background-color: rgba(255, 211, 154, 0.774);
+  background: radial-gradient( rgba(255,0,0,0), rgba(255, 211, 154, 0.774));
+}
+
+.comment-color {
+  background: radial-gradient( rgba(255,0,0,0), rgba(231, 231, 231, 0.774));
 }
 
 .footer-items {
