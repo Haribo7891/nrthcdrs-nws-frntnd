@@ -3,32 +3,52 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PT from 'prop-types';
 
-import { fetchArticleById, fetchCommentsByArticle } from '../actions';
-import { Loading } from '../components';
+import { fetchArticleById, fetchCommentsByArticle, putArticleVote, putCommentVote } from '../actions';
+import { Loading, ArticleBodyUI, VoteArticleUI, VoteCommentUI, ArticleCommentsUI, AddCommentUI } from '../components';
 import { ArticleBody, ArticleComments } from '../containers';
 
 class ArticlePage extends Component {
   
+  state = {
+
+  }
+
   componentDidMount () {
     const { fetchArticleById, fetchCommentsByArticle, match: { params: { articleId } } } = this.props;
     fetchArticleById(articleId);
     fetchCommentsByArticle(articleId);
   }
 
+  handlePutArticleVote = (event, articleId, vote) => {
+    event.preventDefault();
+    const { putArticleVote } = this.props;
+    putArticleVote(articleId, vote);
+  }
+
   render () {
-    const { article: { _id: articleId }, loading, error } = this.props;
+    const { article, loading, error } = this.props;
     return (
       <div className="container-fluid">
         { error && <Redirect to="/404" /> }
         { loading ? <Loading /> : 
           <div className="card border-secondary">
             <div className="article-page-color">
-              <ArticleBody />
+              {/* <ArticleBody /> */}
+              <ArticleBodyUI 
+                article={ article }
+              />
+              <VoteArticleUI 
+                article={ article }
+                handleArticleVote={ this.handlePutArticleVote }
+              />
             </div>        
             <div className="articleCard-text article-page-color">
-              <ArticleComments 
+              {/* <ArticleComments 
                 articleId={ articleId }
-              />
+              /> */}
+              {/* <AddCommentUI /> */}
+              {/* <ArticleCommentsUI /> */}
+              {/* <VoteCommentUI /> */}
             </div>
           </div>
         }
@@ -73,6 +93,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   fetchCommentsByArticle: (articleId) => {
     dispatch(fetchCommentsByArticle(articleId));
+  },
+  putArticleVote: (articleId, vote) => {
+    dispatch(putArticleVote(articleId, vote));
   }
 });
 
