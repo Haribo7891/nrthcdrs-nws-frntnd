@@ -11,7 +11,7 @@ export default (prevState = initialState, action) => {
 
   switch (action.type) {
   case types.FETCH_TOPICS_REQUEST:
-    newState.loading = false;
+    newState.loading = true;
     newState.error = null;
     newState.data = Object.assign({}, prevState.data);
     return newState;

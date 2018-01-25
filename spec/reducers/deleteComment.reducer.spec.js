@@ -22,9 +22,10 @@ describe('Reducer: deleteComment', () => {
     });
   });
   it('Handles DELETE_COMMENT_REQUEST correctly', () => {
+    const prevState = deleteCommentReducer(undefined, deleteCommentRequest(commentId));
     const action = deleteCommentRequest(commentId);
-    const newState = deleteCommentReducer(undefined, action);
-    expect(newState.loading).to.be.true;
+    const newState = deleteCommentReducer(prevState, action);
+    expect(newState.loading).to.be.false;
     expect(newState.error).to.be.null;
     expect(newState.data).to.eql({});
   });
@@ -44,6 +45,6 @@ describe('Reducer: deleteComment', () => {
     const newState = deleteCommentReducer(prevState, action);
     expect(newState.loading).to.be.false;
     expect(newState.error).to.eql(error);
-    expect(newState.data).to.eql({});
+    expect(newState.data).to.eql([]);
   });
 });
