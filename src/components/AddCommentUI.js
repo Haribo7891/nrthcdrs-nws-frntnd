@@ -3,12 +3,9 @@ import PT from 'prop-types';
 
 class AddCommentUI extends Component {
 
-  constructor (props) {
-    super(props);
-    this.state = {
-      comment: ''
-    };
-  }
+  state = {
+    comment: ''
+  };
 
   handleCommentChange = (event) => {
     event.preventDefault();

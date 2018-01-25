@@ -3,9 +3,8 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PT from 'prop-types';
 
-import { fetchArticleById, fetchCommentsByArticle, putArticleVote, putCommentVote } from '../actions';
+import { fetchArticleById, fetchCommentsByArticle, putArticleVote, putCommentVote, postComment, deleteComment } from '../actions';
 import { Loading, ArticleBodyUI, VoteArticleUI, VoteCommentUI, ArticleCommentsUI, AddCommentUI } from '../components';
-import { ArticleBody, ArticleComments } from '../containers';
 
 class ArticlePage extends Component {
   
@@ -25,15 +24,20 @@ class ArticlePage extends Component {
     putArticleVote(articleId, vote);
   }
 
+  handlePostComment = (event, articleId, comment) => {
+    event.preventDefault();
+    const { postComment } = this.props;
+    postComment(articleId, comment);
+  }
+
   render () {
-    const { article, loading, error } = this.props;
+    const { article, comments, loading, error } = this.props;
     return (
       <div className="container-fluid">
         { error && <Redirect to="/404" /> }
         { loading ? <Loading /> : 
           <div className="card border-secondary">
             <div className="article-page-color">
-              {/* <ArticleBody /> */}
               <ArticleBodyUI 
                 article={ article }
               />
@@ -46,8 +50,18 @@ class ArticlePage extends Component {
               {/* <ArticleComments 
                 articleId={ articleId }
               /> */}
-              {/* <AddCommentUI /> */}
-              {/* <ArticleCommentsUI /> */}
+              <AddCommentUI 
+                articleId={ article._id }
+                handlePostComment={ this.handlePostComment }
+              />
+              <h4>Other user comments...</h4>
+              { Object.values(comments).map((comment, i) => (
+                <div key={ i } className="card border-success">
+                  <ArticleCommentsUI 
+                    comment={ comment }
+                  />
+                </div>
+              ))}
               {/* <VoteCommentUI /> */}
             </div>
           </div>
@@ -96,6 +110,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   putArticleVote: (articleId, vote) => {
     dispatch(putArticleVote(articleId, vote));
+  },
+  postComment: (articleId, comment) => {
+    dispatch(postComment(articleId, comment));
   }
 });
 
