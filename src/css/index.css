@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .article, .user, .homepage-list, .article-list {
   width: 36em;
   margin: 0 auto;
@@ -5,6 +10,7 @@
   line-height: 1.5;
   font-size: 18px;
 }
+
 @media only screen and (max-width: 320px) {
   .article {
     font-size: 16px;
@@ -15,6 +21,7 @@
 @-moz-keyframes wiggle{0%{-moz-transform:rotate(6deg);}50%{-moz-transform:rotate(-6deg);}100%{-moz-transform:rotate(6deg);}}
 @-webkit-keyframes wiggle{0%{-webkit-transform:rotate(6deg);}50%{-webkit-transform:rotate(-6deg);}100%{-webkit-transform:rotate(6deg);}}
 @keyframes wiggle{0%{transform:rotate(6deg);}50%{transform:rotate(-6deg);}100%{transform:rotate(6deg);}}
+
 .wiggle-me:hover{-ms-animation:wiggle .3s 6;-moz-animation:wiggle .3s 6;-webkit-animation:wiggle .3s 6;animation:wiggle .3s 6;}
 		
 .app {
@@ -55,10 +62,6 @@
 .comment-input {
   margin: 10px;
   width: 75%;
-}
-
-.navbar-card {
-  margin-top: 0px;
 }
 
 .footer-color {
