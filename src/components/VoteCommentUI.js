@@ -4,7 +4,7 @@ import PT from 'prop-types';
 class VoteCommentUI extends Component {
   
   state = {
-    votes: this.props.comment.votes,
+    votes: this.props.comment.votes
   };
 
   handleCommentVoteUpClick = (event) => {

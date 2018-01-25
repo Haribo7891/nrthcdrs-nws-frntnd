@@ -8,10 +8,6 @@ import { Loading, ArticleBodyUI, VoteArticleUI, VoteCommentUI, ArticleCommentsUI
 
 class ArticlePage extends Component {
   
-  state = {
-
-  }
-
   componentDidMount () {
     const { fetchArticleById, fetchCommentsByArticle, match: { params: { articleId } } } = this.props;
     fetchArticleById(articleId);
@@ -30,10 +26,22 @@ class ArticlePage extends Component {
     postComment(articleId, comment);
   }
 
+  handlePutCommentVote = (event, commentId, vote) => {
+    event.preventDefault();
+    const { putCommentVote } = this.props;
+    putCommentVote(commentId, vote);
+  }
+
+  handleDeleteComment = (event, commentId, articleId) => {
+    event.preventDefault();
+    const { deleteComment } = this.props;
+    deleteComment(commentId);
+  }
+
   render () {
     const { article, comments, loading, error } = this.props;
     return (
-      <div className="container-fluid">
+      <div className="user">
         { error && <Redirect to="/404" /> }
         { loading ? <Loading /> : 
           <div className="card border-secondary">
@@ -47,9 +55,6 @@ class ArticlePage extends Component {
               />
             </div>        
             <div className="articleCard-text article-page-color">
-              {/* <ArticleComments 
-                articleId={ articleId }
-              /> */}
               <AddCommentUI 
                 articleId={ article._id }
                 handlePostComment={ this.handlePostComment }
@@ -60,9 +65,13 @@ class ArticlePage extends Component {
                   <ArticleCommentsUI 
                     comment={ comment }
                   />
+                  <VoteCommentUI 
+                    comment={ comment }
+                    handleCommentVote={ this.handlePutCommentVote }
+                    handleDeleteComment={ this.handleDeleteComment }
+                  />
                 </div>
-              ))}
-              {/* <VoteCommentUI /> */}
+              )) }
             </div>
           </div>
         }
@@ -78,6 +87,10 @@ ArticlePage.propTypes = {
   error: PT.any,
   fetchArticleById: PT.func.isRequired,
   fetchCommentsByArticle: PT.func.isRequired,
+  putArticleVote: PT.func.isRequired,
+  putCommentVote: PT.func.isRequired,
+  postComment: PT.func.isRequired,
+  deleteComment: PT.func.isRequired
 };
 
 const mapStateToProps = (state) => {
@@ -96,8 +109,8 @@ const mapStateToProps = (state) => {
   return {
     article,
     comments,
-    loading: articleLoading || commentsLoading,
-    error: articleError || commentsError
+    loading: commentsLoading || articleLoading,
+    error: commentsError || articleError
   };
 };
 
@@ -113,6 +126,12 @@ const mapDispatchToProps = (dispatch) => ({
   },
   postComment: (articleId, comment) => {
     dispatch(postComment(articleId, comment));
+  },
+  putCommentVote: (commentId, vote) => {
+    dispatch(putCommentVote(commentId, vote));
+  },
+  deleteComment: (commentId) => {
+    dispatch(deleteComment(commentId));
   }
 });
 
