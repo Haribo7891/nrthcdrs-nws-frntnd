@@ -11,11 +11,10 @@ export default (prevState = initialState, action) => {
   
   switch (action.type) {
   case types.FETCH_ARTICLES_REQUEST:
-    return Object.assign({}, prevState, {
-      loading: !prevState.loading,
-      error: null,
-      data: {}
-    });
+    newState.loading = true;
+    newState.error = null;
+    newState.data = Object.assign({}, prevState.data);
+    return newState;
   case types.FETCH_ARTICLES_SUCCESS:
     return Object.assign({}, prevState, {
       loading: false,
@@ -29,11 +28,10 @@ export default (prevState = initialState, action) => {
       data: {}
     });
   case types.FETCH_ARTICLES_BY_TOPIC_REQUEST:
-    return Object.assign({}, prevState, {
-      loading: !prevState.loading,
-      error: null,
-      data: {}
-    });
+    newState.loading = true;
+    newState.error = null;
+    newState.data = Object.assign({}, prevState.data);
+    return newState;
   case types.FETCH_ARTICLES_BY_TOPIC_SUCCESS:
     return Object.assign({}, prevState, {
       loading: false,
@@ -68,7 +66,6 @@ export default (prevState = initialState, action) => {
     newState.loading = false;
     newState.error = null;
     newState.data = Object.assign({}, prevState.data);
-    newState.data.votes = action.payload.votes;
     return newState;
   case types.PUT_ARTICLE_VOTE_SUCCESS:
     return Object.assign({}, prevState, {

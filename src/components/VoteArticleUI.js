@@ -31,11 +31,11 @@ class VoteArticleUI extends Component {
     const { votes } = this.state;
     return (
       <div className="buttons-container">
-        <span className="badge">
+        <span className="badge wiggle-me">
           <a onClick={ this.handleArticleVoteUpClick }><img src="/img/thumbs-up.png" width="20px" alt="thumbs-up"/></a>
         </span>
         <span>{ votes }</span>
-        <span className="badge">
+        <span className="badge wiggle-me">
           <a onClick={ this.handleArticleVoteDownClick }><img src="/img/thumbs-down.png" width="20px" alt="thumbs-down"/></a>
         </span>
       </div>
