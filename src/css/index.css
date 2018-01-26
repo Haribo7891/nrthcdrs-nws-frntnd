@@ -3,7 +3,7 @@ body {
   padding: 0;
 }
 
-.article, .user, .article-list {
+.article, .user {
   width: 36em;
   margin: 0 auto;
   max-width: 100%;
