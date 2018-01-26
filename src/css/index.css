@@ -3,7 +3,7 @@ body {
   padding: 0;
 }
 
-.article, .user, .homepage-list, .article-list {
+.article, .user, .article-list {
   width: 36em;
   margin: 0 auto;
   max-width: 100%;
@@ -23,6 +23,13 @@ body {
 @keyframes wiggle{0%{transform:rotate(6deg);}50%{transform:rotate(-6deg);}100%{transform:rotate(6deg);}}
 
 .wiggle-me:hover{-ms-animation:wiggle .3s 6;-moz-animation:wiggle .3s 6;-webkit-animation:wiggle .3s 6;animation:wiggle .3s 6;}
+
+@-ms-keyframes wiggle2{0%{-ms-transform:rotate(3deg);}50%{-ms-transform:rotate(-3deg);}100%{-ms-transform:rotate(3deg);}}
+@-moz-keyframes wiggle2{0%{-moz-transform:rotate(3deg);}50%{-moz-transform:rotate(-3deg);}100%{-moz-transform:rotate(3deg);}}
+@-webkit-keyframes wiggle2{0%{-webkit-transform:rotate(3deg);}50%{-webkit-transform:rotate(-3deg);}100%{-webkit-transform:rotate(3deg);}}
+@keyframes wiggle2{0%{transform:rotate(3deg);}50%{transform:rotate(-3deg);}100%{transform:rotate(3deg);}}
+
+.wiggle2-me:hover{-ms-animation:wiggle2 .2s 1;-moz-animation:wiggle2 .2s 1;-webkit-animation:wiggle2 .2s 1;animation:wiggle2 .2s 1;}
 		
 .app {
   text-align: center;
