@@ -19,21 +19,22 @@ class User extends Component {
     const userArticles = Object.values(articles).filter((article) => article.created_by === username );
     return (
       <div className="user">
-        <h1>Author Information</h1>
         { error && <Redirect to="/404" /> }
         { loading ? <Loading /> : (
-          <div className="card border-secondary">
-            <UserBodyUI 
-              userData={ userData }
-            />
-            <div className="articleCard-text">
-              { userArticles.map((article, i) => (
-                <div key={ i } className="card border-success">
-                  <UserArticlesUI 
-                    article={ article }
-                  />
-                </div>
-              )) }
+          <div className="container">
+            <div className="card">
+              <UserBodyUI 
+                userData={ userData }
+              />
+              <div className="row">
+                { userArticles.map((article, i) => (
+                  <div key={ i } className="col-md-4 card-group">
+                    <UserArticlesUI 
+                      article={ article }
+                    />
+                  </div>
+                )) }
+              </div>
             </div>
           </div>
         ) }

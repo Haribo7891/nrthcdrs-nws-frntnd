@@ -3,7 +3,7 @@ body {
   padding: 0;
 }
 
-.article, .user {
+.article {
   width: 36em;
   margin: 0 auto;
   max-width: 100%;
@@ -36,7 +36,7 @@ body {
   background: radial-gradient( rgba(255,0,0,0),  rgba(245, 184, 184, 0.774));
 }
 
-.card {
+.card, .navbar-links, .nav-link, .badge {
   margin: 0.3em;
 }
 
@@ -59,7 +59,7 @@ body {
 }
 
 .footer-margin {
-  margin-top: 15px;
+  margin-top: 0.3em;
 }
 
 .article-info {
@@ -67,7 +67,7 @@ body {
 }
 
 .comment-input {
-  margin: 10px;
+  margin: 0.3em;
   width: 75%;
 }
 
