@@ -12,13 +12,13 @@ const HomepageUI = ({ article: { _id: articleId, votes, created_by: username, be
       <footer className="card-footer">
         <div className="row justify-content-between">
           <div className="col small">
-            <div><Link to={ `/articles/${ articleId }` }><img src="/img/smile-o.png" width="20px" alt="smile-o"/></Link> { votes }</div>
+            <div>{ votes } <Link to={ `/articles/${ articleId }` }><img src="/img/smile-o.png" width="20px" alt="smile-o"/></Link></div>
           </div>
           <div className="col small">
             <div><Link to={ `/topics/${ topic }/articles` }><img className="wiggle-me" src={ `/img/${ topic }.png` } width="20px" alt={ `${ topic }` }/></Link></div>
           </div>
           <div className="col small">
-            <div><Link to={ `/user/${ username }` }><img src="/img/user.png" width="20px" alt="user"/></Link></div>
+            <div><img src="/img/user.png" width="20px" alt="user"/> <Link to={ `/user/${ username }` }>{ username }</Link></div>
           </div>
         </div>
       </footer>

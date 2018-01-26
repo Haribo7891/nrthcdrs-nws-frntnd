@@ -23,7 +23,7 @@ class Homepage extends Component {
             <div className="row">
               { Object.values(articles)
                 .map((article, i) => (
-                  <div key={ i } className="col-md-4 card-group">
+                  <div key={ i } className="col-md-6 card-group">
                     <HomepageUI 
                       article={ article }
                     />

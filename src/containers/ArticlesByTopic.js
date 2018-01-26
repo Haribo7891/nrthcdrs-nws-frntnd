@@ -31,7 +31,7 @@ class ArticlesByTopic extends Component {
             <div className="row">
               { Object.values(articles)
                 .map((article, i) => (
-                  <div key={ i } className="col-md-4 card-group">
+                  <div key={ i } className="col-md-6 card-group">
                     <ArticlesByTopicUI 
                       article={ article }
                     />

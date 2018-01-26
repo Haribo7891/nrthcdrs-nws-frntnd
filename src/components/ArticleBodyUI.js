@@ -11,16 +11,14 @@ const ArticleBodyUI = ({ article: { title, created_by: username, belongs_to: top
             <h3>{ title }</h3>
           </div>
           <footer className="card-footer">
-            <ul className="list-inline">
-              <span className="article-info">
-                <span className="card-link">
-                  <span><Link to={ `/topics/${ topic }/articles` }><img className="wiggle-me" src={ `/img/${ topic }.png` } width="20px" alt={ `${ topic }` }/></Link></span>
-                </span>
-                <span className="card-link">
-                  <span><img src="/img/user.png" width="20px" alt="user"/> <Link to={ `/user/${ username }` }>{ username }</Link></span>
-                </span>
-              </span>
-            </ul>
+            <div className="row justify-content-between">
+              <div className="col small">
+                <div><Link to={ `/topics/${ topic }/articles` }><img className="wiggle-me" src={ `/img/${ topic }.png` } width="20px" alt={ `${ topic }` }/></Link></div>
+              </div>
+              <div className="col small">
+                <div><img src="/img/user.png" width="20px" alt="user"/> <Link to={ `/user/${ username }` }>{ username }</Link></div>
+              </div>
+            </div>
           </footer>
           <p className="article-body-text text-justify">
             { body }
