@@ -1,6 +1,7 @@
-body {
-  margin: 0;
-  padding: 0;
+.body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .article {
@@ -62,10 +63,6 @@ body {
   margin-bottom: 0px;
 }
 
-.footer-margin {
-  margin-top: 0.3em;
-}
-
 .article-info {
   margin: 0.3em;
 }
@@ -76,7 +73,9 @@ body {
 }
 
 .footer-color {
-  background: radial-gradient( rgba(255,0,0,0),  rgba(248, 134, 182, 0.774));  
+  background: radial-gradient( rgba(255,0,0,0),  rgba(248, 134, 182, 0.774));
+  margin: 0.3em;
+  bottom: 0px;
 }
 
 .article-page-color {
