@@ -10,13 +10,18 @@ const UserBodyUI = ({ userData }) => {
   }
   
   return (
-    <div className="card-body user-info-header">
-      <div className="card-title">
-        <h2>{ currentUserName }</h2>
-        <h5 className="card-subtitle text-muted">Username: { currentUserUsername }</h5>
+    <div className="card card-margin">
+      <div className="card-body user-info-header">
+        <div className="card-title">
+          <h2>{ currentUserName }</h2>
+          <h5 className="card-subtitle text-muted">Username: { currentUserUsername }</h5>
+        </div>
+        <div className="author-image">
+          <img className="avatar wiggle-me" src={ currentUserAvatar } height="150px" alt="user avatar"/>
+        </div>
       </div>
-      <div className="author-image">
-        <img className="avatar wiggle-me" src={ currentUserAvatar } height="150px" alt="user avatar"/>
+      <div>
+        { (currentUserUsername !== 'northcoder') && <h4>More articles by { currentUserName }:</h4> }        
       </div>
     </div>
   );

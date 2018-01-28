@@ -1,9 +1,10 @@
-body {
-  margin: 0;
-  padding: 0;
+.body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-.article, .user, .homepage-list, .article-list {
+.article {
   width: 36em;
   margin: 0 auto;
   max-width: 100%;
@@ -23,14 +24,25 @@ body {
 @keyframes wiggle{0%{transform:rotate(6deg);}50%{transform:rotate(-6deg);}100%{transform:rotate(6deg);}}
 
 .wiggle-me:hover{-ms-animation:wiggle .3s 6;-moz-animation:wiggle .3s 6;-webkit-animation:wiggle .3s 6;animation:wiggle .3s 6;}
+
+@-ms-keyframes wiggle2{0%{-ms-transform:rotate(3deg);}50%{-ms-transform:rotate(-3deg);}100%{-ms-transform:rotate(3deg);}}
+@-moz-keyframes wiggle2{0%{-moz-transform:rotate(3deg);}50%{-moz-transform:rotate(-3deg);}100%{-moz-transform:rotate(3deg);}}
+@-webkit-keyframes wiggle2{0%{-webkit-transform:rotate(3deg);}50%{-webkit-transform:rotate(-3deg);}100%{-webkit-transform:rotate(3deg);}}
+@keyframes wiggle2{0%{transform:rotate(3deg);}50%{transform:rotate(-3deg);}100%{transform:rotate(3deg);}}
+
+.wiggle2-me:hover{-ms-animation:wiggle2 .2s 1;-moz-animation:wiggle2 .2s 1;-webkit-animation:wiggle2 .2s 1;animation:wiggle2 .2s 1;}
 		
 .app {
   text-align: center;
   background: radial-gradient( rgba(255,0,0,0),  rgba(245, 184, 184, 0.774));
 }
 
-.card {
+.card-margin, .navbar-links, .nav-link, .badge, .homepage-title, .other-comments {
   margin: 0.3em;
+}
+
+.vote-size {
+  font-size: 20px;
 }
 
 .card-footer {
@@ -51,21 +63,19 @@ body {
   margin-bottom: 0px;
 }
 
-.footer-margin {
-  margin-top: 15px;
-}
-
 .article-info {
   margin: 0.3em;
 }
 
 .comment-input {
-  margin: 10px;
-  width: 75%;
+  margin: 0.3em;
+  width: 80%;
 }
 
 .footer-color {
-  background: radial-gradient( rgba(255,0,0,0),  rgba(248, 134, 182, 0.774));  
+  background: radial-gradient( rgba(255,0,0,0),  rgba(248, 134, 182, 0.774));
+  margin: 0.3em;
+  bottom: 0px;
 }
 
 .article-page-color {
@@ -88,7 +98,7 @@ body {
   background: radial-gradient( rgba(255,0,0,0), rgba(231, 231, 231, 0.774));
 }
 
-.footer-items {
+.footer-items, .votes {
   display: flex;
   justify-content: center;
   align-items: center;

@@ -19,10 +19,17 @@ class Homepage extends Component {
       <div className="homepage">
         { error && <Redirect to="/404" /> }
         { loading ? <Loading /> : (
-          <div className="homepage-list">
-            <HomepageUI 
-              articles={ articles }
-            />
+          <div className="container">
+            <div className="row">
+              { Object.values(articles)
+                .map((article, i) => (
+                  <div key={ i } className="col-md-6 card-group">
+                    <HomepageUI 
+                      article={ article }
+                    />
+                  </div>
+                ))}
+            </div>
           </div>
         ) }
       </div>

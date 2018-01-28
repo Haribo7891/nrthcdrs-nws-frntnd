@@ -30,14 +30,16 @@ class VoteArticleUI extends Component {
   render () {
     const { votes } = this.state;
     return (
-      <div className="buttons-container">
-        <span className="badge wiggle-me">
-          <a onClick={ this.handleArticleVoteUpClick }><img src="/img/thumbs-up.png" width="20px" alt="thumbs-up"/></a>
-        </span>
-        <span>{ votes }</span>
-        <span className="badge wiggle-me">
-          <a onClick={ this.handleArticleVoteDownClick }><img src="/img/thumbs-down.png" width="20px" alt="thumbs-down"/></a>
-        </span>
+      <div className="container">
+        <div className="row">
+          <div className="col badge wiggle-me">
+            <a onClick={ this.handleArticleVoteUpClick }><img src="/img/thumbs-up.png" width="40px" alt="thumbs-up"/></a>
+          </div>
+          <div className="col votes vote-size">{ votes } <img src="/img/smile-o.png" width="30px" alt="smile-o"/></div>
+          <div className="col badge wiggle-me">
+            <a onClick={ this.handleArticleVoteDownClick }><img src="/img/thumbs-down.png" width="40px" alt="thumbs-down"/></a>
+          </div>
+        </div>
       </div>
     );
   }

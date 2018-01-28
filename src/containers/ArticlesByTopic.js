@@ -24,21 +24,19 @@ class ArticlesByTopic extends Component {
   render () {
     const { articles, loading, error } = this.props;
     return (
-      <div className="article-list">
+      <div className="articles-by-topic">
         { error && <Redirect to="/404" /> }
         { loading ? <Loading /> : (
-          <div className="article-list-title">
-            <div className="article-list-list">
-              <div className="list-item">
-                { Object.values(articles)
-                  .map((article, i) => (
-                    <div key={ i } className="card-group">
-                      <ArticlesByTopicUI 
-                        article={ article }
-                      />
-                    </div>
-                  ))}
-              </div>
+          <div className="container">
+            <div className="row">
+              { Object.values(articles)
+                .map((article, i) => (
+                  <div key={ i } className="col-md-6 card-group">
+                    <ArticlesByTopicUI 
+                      article={ article }
+                    />
+                  </div>
+                ))}
             </div>
           </div>
         )}
