@@ -22,19 +22,17 @@ class User extends Component {
         { error && <Redirect to="/404" /> }
         { loading ? <Loading /> : (
           <div className="container">
-            <div className="card card-margin">
-              <UserBodyUI 
-                userData={ userData }
-              />
-              <div className="row">
-                { userArticles.map((article, i) => (
-                  <div key={ i } className="col-md-4 card-group">
-                    <UserArticlesUI 
-                      article={ article }
-                    />
-                  </div>
-                )) }
-              </div>
+            <UserBodyUI 
+              userData={ userData }
+            />
+            <div className="row">
+              { userArticles.map((article, i) => (
+                <div key={ i } className="col-md-6 card-group">
+                  <UserArticlesUI 
+                    article={ article }
+                  />
+                </div>
+              )) }
             </div>
           </div>
         ) }
