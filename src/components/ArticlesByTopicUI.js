@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PT from 'prop-types';
 
 const ArticlesByTopicUI = ({ article: { _id: articleId, votes, created_by: username, belongs_to: topic, title } }) => (
-  <div className="card text-center border-danger wiggle2-me">
+  <div className="card card-margin text-center border-danger wiggle2-me">
     <div className="article-list-color card-body">
       <div className="card-title">
         <h6><Link to={ `/articles/${ articleId }` }>{ title }</Link></h6>

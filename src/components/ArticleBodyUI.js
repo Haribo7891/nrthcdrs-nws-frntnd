@@ -4,7 +4,7 @@ import PT from 'prop-types';
 
 const ArticleBodyUI = ({ article: { title, created_by: username, belongs_to: topic, body } }) => (
   <div className="article-body article">
-    <div className="card border-warning">
+    <div className="card card-margin border-warning">
       <div className="card-body">
         <blockquote className="card-blockquote">
           <div className="card-title">

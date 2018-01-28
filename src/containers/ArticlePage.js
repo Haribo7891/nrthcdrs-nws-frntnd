@@ -44,7 +44,7 @@ class ArticlePage extends Component {
       <div className="user">
         { error && <Redirect to="/404" /> }
         { loading ? <Loading /> : 
-          <div className="card border-secondary">
+          <div className="card card-margin border-secondary">
             <div className="article-page-color">
               <ArticleBodyUI 
                 article={ article }
@@ -61,7 +61,7 @@ class ArticlePage extends Component {
               />
               <h4>Other user comments...</h4>
               { Object.values(comments).map((comment, i) => (
-                <div key={ i } className="card border-success comment-color">
+                <div key={ i } className="card card-margin border-success comment-color">
                   <ArticleCommentsUI 
                     comment={ comment }
                   />

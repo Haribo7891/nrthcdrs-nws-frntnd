@@ -22,7 +22,7 @@ class User extends Component {
         { error && <Redirect to="/404" /> }
         { loading ? <Loading /> : (
           <div className="container">
-            <div className="card">
+            <div className="card card-margin">
               <UserBodyUI 
                 userData={ userData }
               />
