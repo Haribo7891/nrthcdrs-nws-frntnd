@@ -41,37 +41,49 @@ class ArticlePage extends Component {
   render () {
     const { article, comments, loading, error } = this.props;
     return (
-      <div className="user">
+      <div className="article-page">
         { error && <Redirect to="/404" /> }
         { loading ? <Loading /> : 
-          <div className="card card-margin border-secondary">
-            <div className="article-page-color">
-              <ArticleBodyUI 
-                article={ article }
-              />
-              <VoteArticleUI 
-                article={ article }
-                handleArticleVote={ this.handlePutArticleVote }
-              />
-            </div>        
-            <div className="articleCard-text article-page-color">
-              <AddCommentUI 
-                articleId={ article._id }
-                handlePostComment={ this.handlePostComment }
-              />
-              <h4>Other user comments...</h4>
-              { Object.values(comments).map((comment, i) => (
-                <div key={ i } className="card card-margin border-success comment-color">
-                  <ArticleCommentsUI 
-                    comment={ comment }
-                  />
-                  <VoteCommentUI 
-                    comment={ comment }
-                    handleCommentVote={ this.handlePutCommentVote }
-                    handleDeleteComment={ this.handleDeleteComment }
+          <div className="container">
+            <div className="card card-margin border-secondary">
+              <div className="article-page-color">
+                <ArticleBodyUI 
+                  article={ article }
+                />
+                <div className="article">
+                  <VoteArticleUI 
+                    article={ article }
+                    handleArticleVote={ this.handlePutArticleVote }
                   />
                 </div>
-              )) }
+              </div>        
+              <div className="article-card-text article-page-color">
+                <div className="article add-comment">
+                  <AddCommentUI 
+                    articleId={ article._id }
+                    handlePostComment={ this.handlePostComment }
+                  />
+                </div>
+                <div className="other-comments">
+                  <h4>Other user comments...</h4>
+                </div>
+                { Object.values(comments).map((comment, i) => (
+                  <div key={ i } className="article">
+                    <div className="card card-margin border-success comment-color">
+                      <div className="card-body">
+                        <ArticleCommentsUI 
+                          comment={ comment }
+                        />
+                        <VoteCommentUI 
+                          comment={ comment }
+                          handleCommentVote={ this.handlePutCommentVote }
+                          handleDeleteComment={ this.handleDeleteComment }
+                        />
+                      </div>
+                    </div>
+                  </div>
+                )) }
+              </div>
             </div>
           </div>
         }

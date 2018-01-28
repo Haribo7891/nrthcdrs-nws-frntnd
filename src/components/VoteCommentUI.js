@@ -37,15 +37,19 @@ class VoteCommentUI extends Component {
     const { comment: { created_by: username } } = this.props;
     const { votes } = this.state;
     return (
-      <div className="buttons-container comment-vote-color">
-        <span className="badge wiggle-me">
-          <a onClick={ this.handleCommentVoteUpClick }><img src="/img/thumbs-up.png" width="20px" alt="thumbs-up"/></a>
-        </span>
-        <span>{ votes }</span>
-        <span className="badge wiggle-me">
-          <a onClick={ this.handleCommentVoteDownClick }><img src="/img/thumbs-down.png" width="20px" alt="thumbs-down"/></a>
-        </span>
-        { (username === 'northcoder') && <a onClick={ this.handleDeleteCommentClick }><img src="/img/trash.png" width="20px" alt="delete"/></a> }        
+      <div>
+        <div className="buttons-container comment-vote-color">
+          <span className="badge wiggle-me">
+            <a onClick={ this.handleCommentVoteUpClick }><img src="/img/thumbs-up.png" width="25px" alt="thumbs-up"/></a>
+          </span>
+          <span>{ votes } <img src="/img/smile-o.png" width="25px" alt="smile-o"/></span>
+          <span className="badge wiggle-me">
+            <a onClick={ this.handleCommentVoteDownClick }><img src="/img/thumbs-down.png" width="25px" alt="thumbs-down"/></a>
+          </span>
+        </div>
+        <div className="badge wiggle-me">
+          { (username === 'northcoder') && <a onClick={ this.handleDeleteCommentClick }><img src="/img/trash.png" width="25px" alt="delete"/></a> }        
+        </div>
       </div>
     );
   }

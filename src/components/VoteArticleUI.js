@@ -33,11 +33,11 @@ class VoteArticleUI extends Component {
       <div className="container">
         <div className="row">
           <div className="col badge wiggle-me">
-            <a onClick={ this.handleArticleVoteUpClick }><img src="/img/thumbs-up.png" width="50px" alt="thumbs-up"/></a>
+            <a onClick={ this.handleArticleVoteUpClick }><img src="/img/thumbs-up.png" width="40px" alt="thumbs-up"/></a>
           </div>
           <div className="col votes vote-size">{ votes } <img src="/img/smile-o.png" width="30px" alt="smile-o"/></div>
           <div className="col badge wiggle-me">
-            <a onClick={ this.handleArticleVoteDownClick }><img src="/img/thumbs-down.png" width="50px" alt="thumbs-down"/></a>
+            <a onClick={ this.handleArticleVoteDownClick }><img src="/img/thumbs-down.png" width="40px" alt="thumbs-down"/></a>
           </div>
         </div>
       </div>
