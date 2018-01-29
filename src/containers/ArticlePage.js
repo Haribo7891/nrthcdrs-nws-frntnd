@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PT from 'prop-types';
 
 import { fetchArticleById, fetchCommentsByArticle, putArticleVote, putCommentVote, postComment, deleteComment } from '../actions';
-import { Loading, ArticleBodyUI, VoteArticleUI, VoteCommentUI, ArticleCommentsUI, AddCommentUI } from '../components';
+import { Loading, ArticleBodyUI, VoteArticleUI, VoteCommentUI, ArticleCommentsUI, AddCommentUI, Footer } from '../components';
 
 class ArticlePage extends Component {
   
@@ -85,6 +85,7 @@ class ArticlePage extends Component {
                 )) }
               </div>
             </div>
+            <Footer /> 
           </div>
         }
       </div>

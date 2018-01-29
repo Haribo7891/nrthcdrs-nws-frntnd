@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PT from 'prop-types';
 
 import { fetchArticlesByTopic } from '../actions';
-import { Loading, ArticlesByTopicUI } from '../components';
+import { Loading, ArticlesByTopicUI, Footer } from '../components';
 
 class ArticlesByTopic extends Component {
   
@@ -38,6 +38,7 @@ class ArticlesByTopic extends Component {
                   </div>
                 ))}
             </div>
+            <Footer /> 
           </div>
         )}
       </div>

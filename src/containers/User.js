@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PT from 'prop-types';
 
 import { fetchUser, fetchArticles } from '../actions';
-import { Loading, UserArticlesUI, UserBodyUI } from '../components';
+import { Loading, UserArticlesUI, UserBodyUI, Footer } from '../components';
 
 class User extends Component {
   
@@ -34,6 +34,7 @@ class User extends Component {
                 </div>
               )) }
             </div>
+            <Footer />
           </div>
         ) }
       </div>

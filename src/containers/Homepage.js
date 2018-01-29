@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PT from 'prop-types';
 
 import { fetchArticles } from '../actions';
-import { Loading, HomepageUI } from '../components';
+import { Loading, HomepageUI, Footer } from '../components';
 
 class Homepage extends Component {
   
@@ -30,6 +30,7 @@ class Homepage extends Component {
                   </div>
                 ))}
             </div>
+            <Footer /> 
           </div>
         ) }
       </div>
