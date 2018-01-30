@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import PT from 'prop-types';
+import PT, { object } from 'prop-types';
 
 import { fetchArticlesByTopic } from '../actions';
 import { Loading, ArticlesByTopicUI, Footer } from '../components';
@@ -29,14 +29,13 @@ class ArticlesByTopic extends Component {
         { loading ? <Loading /> : (
           <div className="container">
             <div className="row">
-              { Object.values(articles)
-                .map((article, i) => (
-                  <div key={ i } className="col-md-6 card-group">
-                    <ArticlesByTopicUI 
-                      article={ article }
-                    />
-                  </div>
-                ))}
+              { articles.map((article, i) => (
+                <div key={ i } className="col-md-6 card-group">
+                  <ArticlesByTopicUI 
+                    article={ article }
+                  />
+                </div>
+              ))}
             </div>
             <Footer /> 
           </div>
@@ -47,7 +46,7 @@ class ArticlesByTopic extends Component {
 }
 
 ArticlesByTopic.propTypes = {
-  articles: PT.oneOfType([ PT.object, PT.array ]).isRequired,
+  articles: PT.arrayOf(object).isRequired,
   loading: PT.bool.isRequired,
   error: PT.any,
   fetchArticlesByTopic: PT.func.isRequired

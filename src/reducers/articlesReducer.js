@@ -3,18 +3,17 @@ import * as types from '../actions/types';
 export const initialState = {
   loading: false,
   error: null,
-  data: {}
+  data: []
 };
 
-export default (prevState = initialState, action) => {
-  const newState = Object.assign({}, prevState);
-  
+export default (prevState = initialState, action) => {  
   switch (action.type) {
   case types.FETCH_ARTICLES_REQUEST:
-    newState.loading = true;
-    newState.error = null;
-    newState.data = Object.assign({}, prevState.data);
-    return newState;
+    return Object.assign({}, prevState, {
+      loading: true,
+      error: null,
+      data: prevState.data
+    });
   case types.FETCH_ARTICLES_SUCCESS:
     return Object.assign({}, prevState, {
       loading: false,
@@ -25,13 +24,14 @@ export default (prevState = initialState, action) => {
     return Object.assign({}, prevState, {
       loading: false,
       error: action.payload,
-      data: {}
+      data: []
     });
   case types.FETCH_ARTICLES_BY_TOPIC_REQUEST:
-    newState.loading = true;
-    newState.error = null;
-    newState.data = Object.assign({}, prevState.data);
-    return newState;
+    return Object.assign({}, prevState, {
+      loading: true,
+      error: null,
+      data: prevState.data
+    });
   case types.FETCH_ARTICLES_BY_TOPIC_SUCCESS:
     return Object.assign({}, prevState, {
       loading: false,
@@ -42,42 +42,7 @@ export default (prevState = initialState, action) => {
     return Object.assign({}, prevState, {
       loading: false,
       error: action.payload,
-      data: {}
-    });
-  case types.FETCH_ARTICLE_BY_ID_REQUEST:
-    return Object.assign({}, prevState, {
-      loading: !prevState.loading,
-      error: null,
-      data: {}
-    });
-  case types.FETCH_ARTICLE_BY_ID_SUCCESS:
-    return Object.assign({}, prevState, {
-      loading: false,
-      error: null,
-      data: action.payload
-    });
-  case types.FETCH_ARTICLE_BY_ID_FAILURE:
-    return Object.assign({}, prevState, {
-      loading: false,
-      error: action.payload,
-      data: {}
-    });
-  case types.PUT_ARTICLE_VOTE_REQUEST:
-    newState.loading = false;
-    newState.error = null;
-    newState.data = Object.assign({}, prevState.data);
-    return newState;
-  case types.PUT_ARTICLE_VOTE_SUCCESS:
-    return Object.assign({}, prevState, {
-      loading: false,
-      error: null,
-      data: action.payload
-    });
-  case types.PUT_ARTICLE_VOTE_FAILURE:
-    return Object.assign({}, prevState, {
-      loading: false,
-      error: action.payload,
-      data: {}
+      data: []
     });
   default:
     return prevState;
