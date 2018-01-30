@@ -24,7 +24,7 @@ describe('Reducer: fetchTopics', () => {
     const newState = fetchTopicsReducer(undefined, action);
     expect(newState.loading).to.be.true;
     expect(newState.error).to.be.null;
-    expect(newState.data).to.eql({});
+    expect(newState.data).to.eql([]);
   });
   it('Handles FETCH_TOPICS_SUCCESS correctly', () => {
     const prevState = fetchTopicsReducer(undefined, fetchTopicsRequest());
@@ -42,6 +42,6 @@ describe('Reducer: fetchTopics', () => {
     const newState = fetchTopicsReducer(prevState, action);
     expect(newState.loading).to.be.false;
     expect(newState.error).to.eql(error);
-    expect(newState.data).to.eql({});
+    expect(newState.data).to.eql([]);
   });
 });
