@@ -27,7 +27,7 @@ const HomepageUI = ({ article: { _id: articleId, votes, created_by: username, be
 );
 
 HomepageUI.propTypes = {
-  article: PT.oneOfType([ PT.object, PT.array ]).isRequired
+  article: PT.object.isRequired
 };
   
 export default HomepageUI;

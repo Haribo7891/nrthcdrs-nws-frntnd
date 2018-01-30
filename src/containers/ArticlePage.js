@@ -32,7 +32,7 @@ class ArticlePage extends Component {
     putCommentVote(commentId, vote);
   }
 
-  handleDeleteComment = (event, commentId, articleId) => {
+  handleDeleteComment = (event, commentId) => {
     event.preventDefault();
     const { deleteComment } = this.props;
     deleteComment(commentId);
@@ -67,7 +67,7 @@ class ArticlePage extends Component {
                 <div className="other-comments">
                   <h4>Other user comments...</h4>
                 </div>
-                { Object.values(comments).map((comment, i) => (
+                { comments.map((comment, i) => (
                   <div key={ i } className="article">
                     <div className="card card-margin border-success comment-color">
                       <div className="card-body">
@@ -94,7 +94,7 @@ class ArticlePage extends Component {
 }
 
 ArticlePage.propTypes = {
-  article: PT.oneOfType([ PT.object, PT.array ]).isRequired,
+  article: PT.object.isRequired,
   comments: PT.oneOfType([ PT.object, PT.array ]).isRequired,
   loading: PT.bool.isRequired,
   error: PT.any,
@@ -111,7 +111,7 @@ const mapStateToProps = (state) => {
     data: article,
     loading: articleLoading,
     error: articleError
-  } = state.articlesReducer;
+  } = state.singleArticleReducer;
 
   const {
     data: comments,

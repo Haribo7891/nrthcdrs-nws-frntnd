@@ -26,7 +26,7 @@ describe('Reducer: fetchArticlesByTopic', () => {
     const newState = fetchArticlesByTopic(undefined, action);
     expect(newState.loading).to.be.true;
     expect(newState.error).to.be.null;
-    expect(newState.data).to.eql({});
+    expect(newState.data).to.eql([]);
   });
   it('Handles FETCH_ARTICLES_BY_TOPIC_SUCCESS correctly', () => {
     const prevState = fetchArticlesByTopic(undefined, fetchArticlesByTopicRequest(topic));
@@ -44,6 +44,6 @@ describe('Reducer: fetchArticlesByTopic', () => {
     const newState = fetchArticlesByTopic(prevState, action);
     expect(newState.loading).to.be.false;
     expect(newState.error).to.eql(error);
-    expect(newState.data).to.eql({});
+    expect(newState.data).to.eql([]);
   });
 });

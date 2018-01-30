@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import PT from 'prop-types';
+import PT, { object } from 'prop-types';
 
 import { fetchTopics } from '../actions';
 import { Loading, TopicsUI } from '../components';
@@ -19,9 +19,21 @@ class Topics extends Component {
       <div className="navbar-topics">
         { error && <Redirect to="/404" /> }
         { loading ? <Loading/> :
-          <TopicsUI 
-            topics={ topics }
-          />
+          <div className="topic-links">
+            <div className="navbar-links">
+              <div className="topic-title">
+                Filter by topic:
+              </div>
+              <NavLink className="nav-link list-inline-item badge badge-pill badge-light wiggle-me" to="/">ALL TOPICS</NavLink>
+              { topics.map((topic, i) => (
+                <span key={ i }>
+                  <TopicsUI 
+                    topic={ topic }
+                  />
+                </span>
+              )) }
+            </div>
+          </div>
         }
       </div>
     );
@@ -29,7 +41,7 @@ class Topics extends Component {
 }
 
 Topics.propTypes = {
-  topics: PT.oneOfType([ PT.object, PT.array ]).isRequired,
+  topics: PT.arrayOf(object).isRequired,
   loading: PT.bool.isRequired,
   error: PT.any,
   fetchTopics: PT.func.isRequired

@@ -24,7 +24,7 @@ describe('Reducer: fetchArticles', () => {
     const newState = fetchArticlesReducer(undefined, action);
     expect(newState.loading).to.be.true;
     expect(newState.error).to.be.null;
-    expect(newState.data).to.eql({});
+    expect(newState.data).to.eql([]);
   });
   it('Handles FETCH_ARTICLES_SUCCESS correctly', () => {
     const prevState = fetchArticlesReducer(undefined, fetchArticlesRequest());
@@ -42,6 +42,6 @@ describe('Reducer: fetchArticles', () => {
     const newState = fetchArticlesReducer(prevState, action);
     expect(newState.loading).to.be.false;
     expect(newState.error).to.eql(error);
-    expect(newState.data).to.eql({});
+    expect(newState.data).to.eql([]);
   });
 });

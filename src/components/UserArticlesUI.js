@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PT from 'prop-types';
 
-const UserArticlesUI = ({ article: { _id: articleId, title, votes, belongs_to: topic } }) => (
+const UserArticlesUI = ({ article: { _id: articleId, title, votes, belongs_to: topicName } }) => (
   <div className="card card-margin text-center border-success wiggle2-me">
     <div className="user-article-card-color card-body">
       <div className="card-title">
@@ -16,7 +16,7 @@ const UserArticlesUI = ({ article: { _id: articleId, title, votes, belongs_to: t
               <div><Link to={ `/articles/${ articleId }` }><img src="/img/smile-o.png" width="20px" alt="smile-o"/></Link> { votes }</div>
             </div>
             <div className="col small">
-              <div><Link to={ `/topics/${ topic }/articles` }><img className="wiggle-me" src={ `/img/${ topic }.png` } width="20px" alt={ `${ topic }` }/></Link></div>
+              <div><Link to={ `/topics/${ topicName }/articles` }><img className="wiggle-me" src={ `/img/${ topicName }.png` } width="20px" alt={ `${ topicName }` }/></Link></div>
             </div>
           </div>
         </footer>

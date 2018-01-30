@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import PT from 'prop-types';
+import PT, { object } from 'prop-types';
 
 import { fetchArticles } from '../actions';
 import { Loading, HomepageUI, Footer } from '../components';
@@ -21,14 +21,13 @@ class Homepage extends Component {
         { loading ? <Loading /> : (
           <div className="container">
             <div className="row">
-              { Object.values(articles)
-                .map((article, i) => (
-                  <div key={ i } className="col-md-6 card-group">
-                    <HomepageUI 
-                      article={ article }
-                    />
-                  </div>
-                ))}
+              { articles.map((article, i) => (
+                <div key={ i } className="col-md-6 card-group">
+                  <HomepageUI 
+                    article={ article }
+                  />
+                </div>
+              ))}
             </div>
             <Footer /> 
           </div>
@@ -39,7 +38,7 @@ class Homepage extends Component {
 }
 
 Homepage.propTypes = {
-  articles: PT.oneOfType([ PT.object, PT.array ]).isRequired,
+  articles: PT.arrayOf(object).isRequired,
   loading: PT.bool.isRequired,
   error: PT.any,
   fetchArticles: PT.func.isRequired

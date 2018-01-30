@@ -7,14 +7,13 @@ export const initialState = {
 };
 
 export default (prevState = initialState, action) => {
-  const newState = Object.assign({}, prevState);
-
   switch (action.type) {
   case types.FETCH_USER_REQUEST:
-    newState.loading = true;
-    newState.error = null;
-    newState.data = Object.assign({}, prevState.data);
-    return newState;
+    return Object.assign({}, prevState, {
+      loading: true,
+      error: null,
+      data: prevState.data
+    });
   case types.FETCH_USER_SUCCESS:
     return Object.assign({}, prevState, {
       loading: false,

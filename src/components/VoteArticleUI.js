@@ -46,7 +46,7 @@ class VoteArticleUI extends Component {
 }
 
 VoteArticleUI.propTypes = {
-  article: PT.oneOfType([ PT.object, PT.array ]).isRequired,
+  article: PT.object.isRequired,
   handleArticleVote: PT.func.isRequired
 };
 

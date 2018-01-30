@@ -3,46 +3,47 @@ import * as types from '../actions/types';
 export const initialState = {
   loading: false,
   error: null,
-  data: []
+  data: {}
 };
 
-export default (prevState = initialState, action) => {  
+export default (prevState = initialState, action) => {
+  
   switch (action.type) {
-  case types.FETCH_ARTICLES_REQUEST:
+  case types.FETCH_ARTICLE_BY_ID_REQUEST:
     return Object.assign({}, prevState, {
-      loading: true,
+      loading: !prevState.loading,
       error: null,
       data: prevState.data
     });
-  case types.FETCH_ARTICLES_SUCCESS:
+  case types.FETCH_ARTICLE_BY_ID_SUCCESS:
     return Object.assign({}, prevState, {
       loading: false,
       error: null,
       data: action.payload
     });
-  case types.FETCH_ARTICLES_FAILURE:
+  case types.FETCH_ARTICLE_BY_ID_FAILURE:
     return Object.assign({}, prevState, {
       loading: false,
       error: action.payload,
-      data: []
+      data: {}
     });
-  case types.FETCH_ARTICLES_BY_TOPIC_REQUEST:
+  case types.PUT_ARTICLE_VOTE_REQUEST:
     return Object.assign({}, prevState, {
-      loading: true,
+      loading: false,
       error: null,
       data: prevState.data
     });
-  case types.FETCH_ARTICLES_BY_TOPIC_SUCCESS:
+  case types.PUT_ARTICLE_VOTE_SUCCESS:
     return Object.assign({}, prevState, {
       loading: false,
       error: null,
       data: action.payload
     });
-  case types.FETCH_ARTICLES_BY_TOPIC_FAILURE:
+  case types.PUT_ARTICLE_VOTE_FAILURE:
     return Object.assign({}, prevState, {
       loading: false,
       error: action.payload,
-      data: []
+      data: {}
     });
   default:
     return prevState;

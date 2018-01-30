@@ -29,8 +29,8 @@ class VoteCommentUI extends Component {
 
   handleDeleteCommentClick = (event) => {
     event.preventDefault();
-    const { handleDeleteComment, comment: { _id: commentId, belongs_to: articleId } } = this.props;
-    handleDeleteComment(event, commentId, articleId);
+    const { handleDeleteComment, comment: { _id: commentId } } = this.props;
+    handleDeleteComment(event, commentId);
   };
 
   render () {
@@ -56,7 +56,7 @@ class VoteCommentUI extends Component {
 }
 
 VoteCommentUI.propTypes = {
-  comment: PT.oneOfType([ PT.object, PT.array ]).isRequired,
+  comment: PT.object.isRequired,
   handleCommentVote: PT.func.isRequired,
   handleDeleteComment: PT.func.isRequired
 };
