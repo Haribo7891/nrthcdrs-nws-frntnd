@@ -26,7 +26,7 @@ describe('Reducer: fetchCommentsByArticle', () => {
     const newState = fetchCommentsByArticleReducer(undefined, action);
     expect(newState.loading).to.be.true;
     expect(newState.error).to.be.null;
-    expect(newState.data).to.eql({});
+    expect(newState.data).to.eql([]);
   });
   it('Handles FETCH_COMMENTS_BY_ARTICLE_SUCCESS correctly', () => {
     const prevState = fetchCommentsByArticleReducer(undefined, fetchCommentsByArticleRequest(articleId));

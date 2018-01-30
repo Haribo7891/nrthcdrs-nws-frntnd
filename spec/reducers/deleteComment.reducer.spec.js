@@ -27,7 +27,7 @@ describe('Reducer: deleteComment', () => {
     const newState = deleteCommentReducer(prevState, action);
     expect(newState.loading).to.be.false;
     expect(newState.error).to.be.null;
-    expect(newState.data).to.eql({});
+    expect(newState.data).to.eql([]);
   });
   it('Handles DELETE_COMMENT_SUCCESS correctly', () => {
     const prevState = deleteCommentReducer(undefined, deleteCommentRequest(commentId));
