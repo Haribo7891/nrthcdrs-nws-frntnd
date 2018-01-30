@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import PT from 'prop-types';
+import PT, { object } from 'prop-types';
 
 import { fetchUser, fetchArticles } from '../actions';
 import { Loading, UserArticlesUI, UserBodyUI, Footer } from '../components';
@@ -16,7 +16,7 @@ class User extends Component {
 
   render () {
     const { articles, userData, loading, error, match: { params: { username } } } = this.props;
-    const userArticles = Object.values(articles).filter((article) => article.created_by === username );
+    const userArticles = articles.filter((article) => article.created_by === username );
     return (
       <div className="user">
         { error && <Redirect to="/404" /> }
@@ -44,7 +44,7 @@ class User extends Component {
 
 User.propTypes = {
   userData: PT.object.isRequired,
-  articles: PT.oneOfType([ PT.object, PT.array ]).isRequired,
+  articles: PT.arrayOf(object).isRequired,
   loading: PT.bool.isRequired,
   error: PT.any,
   fetchUser: PT.func.isRequired,

@@ -21,7 +21,7 @@ export default (username) => (dispatch) => {
   dispatch(fetchUserRequest(username));
   return axios.get(`${ API_URL }/users/${ username }`)
     .then((res) => {
-      dispatch(fetchUserSuccess(res.data));
+      dispatch(fetchUserSuccess(res.data.user));
     })
     .catch((error) => {
       dispatch(fetchUserFailure(error.message));

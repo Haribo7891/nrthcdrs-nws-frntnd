@@ -22,7 +22,7 @@ describe('Action Creator: fetchUser', () => {
   it('Dispatches FETCH_USER_SUCCESS when fetching a user responds with 200 and data', () => {
     nock(API_URL)
       .get(`/users/${ username }`)
-      .reply(200, [ 1, 2, 3 ]);
+      .reply(200, { user: [ 1, 2, 3 ] });
       
     const expectedActions = [
       fetchUserRequest(username),
