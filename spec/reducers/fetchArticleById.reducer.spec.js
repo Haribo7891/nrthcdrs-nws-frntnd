@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import fetchArticleByIdReducer, { initialState } from '../../src/reducers/articlesReducer';
+import fetchArticleByIdReducer, { initialState } from '../../src/reducers/singleArticleReducer';
 import {
   fetchArticleByIdRequest,
   fetchArticleByIdSuccess,
