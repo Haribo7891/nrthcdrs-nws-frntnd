@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PT from 'prop-types';
 
-const ArticlesByTopicUI = ({ article: { _id: articleId, votes, created_by: username, belongs_to: topic, title } }) => (
+const ArticlesByTopicUI = ({ article: { _id: articleId, votes, created_by: username, title } }) => (
   <div className="card card-margin text-center border-danger wiggle2-me">
     <div className="article-list-color card-body">
       <div className="card-title">
@@ -24,7 +24,7 @@ const ArticlesByTopicUI = ({ article: { _id: articleId, votes, created_by: usern
 );
   
 ArticlesByTopicUI.propTypes = {
-  article: PT.oneOfType([ PT.object, PT.array ]).isRequired
+  article: PT.object.isRequired
 };
 
 export default ArticlesByTopicUI;
